@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TODO in HTML5 Skeleton</title>
+<!-- CSS, JS External 정의 -->
+<link rel="stylesheet" type="text/css" href="AddToDo_CSS.css">
+<link rel="stylesheet" type="text/css" href="TP1_SKELETON_CSS.css">
+<style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* The Modal (background) */
+        .doContent {
+            margin: 10px;
+            border: 1px solid #888;
+            border-radius: 3px;
+            background-color: white;
+        }
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 0;
+            width: 80%;
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+        .modal-body {
+            padding: 2px 16px;
+        }
+        ul {
+            background: #cce5ff;
+        }
+</style>
+</head>
+<body>
+<article>
+<header>
+<button id="myBtn" style="float:left;">Add ToDo</button>
+<!-- Header (Add ToDo 버튼, keyword 검색) -->
+<select>
+	<option value="" disabled selected hidden>day</option>
+	<option>Mon</option>
+	<option>Tue</option>
+	<option>Wed</option>
+	<option>Thu</option>
+	<option>Fri</option>
+</select>
+<input type="search" id="myInput" placeholder="Enter your keyword here"/>
+</header>
+<main id="content">
+<!-- Middle Bar A~D, Display Area A~D -->
+<section id="middleBar_mon" class="middle">
+<section class="middleTop"><b>mon</b></section>
+<section class="displayArea_mon"><b>월요일 목록</b>
+<div>
+	<table>
+	<tr>
+        <a id="conBtn">
+		<div class="doContent">
+			<span class="close" style="float:right;">&times;</span>
+			<p>
+				할일할일1
+			</p>
+		</div>
+            </a>
+	</tr>
+	<tr>
+		<div class="doContent">
+			<span class="close" style="float:right;">&times;</span>
+			<p>
+				할일할일2
+			</p>
+		</div>
+	</tr>
+	</table>
+</div>
+</section>
+</section>
+<!--경계선-->
+<div class="mainLine">
+</div>
+<section id="middleBar_tue" class="middle">
+<section class="middleTop"><b>tue</b></section>
+<section class="displayArea_tue"><b>화요일 목록</b>
+<div>
+	<table>
+	<tr>
+		<div class="doContent">
+			<span class="close" style="float:right;">&times;</span>
+			<p>
+				할일할일1
+			</p>
+		</div>
+	</tr>
+	<tr>
+		<div class="doContent">
+			<span class="close" style="float:right;">&times;</span>
+			<p>
+				할일할일2
+			</p>
+		</div>
+	</tr>
+	</table>
+</div>
+</section>
+</section>
+<div class="mainLine">
+</div>
+<section id="middleBar_wed" class="middle">
+<section class="middleTop"><b>wed</b></section>
+<section class="displayArea_wed"><b>수요일 목록</b>
+<div>
+	<table>
+	<tr>
+		<div class="doContent">
+			<span class="close" style="float:right;">&times;</span>
+			<p>
+				할일할일1
+			</p>
+		</div>
+	</tr>
+	<tr>
+		<div class="doContent">
+			<span class="close" style="float:right;">&times;</span>
+			<p>
+				할일할일2
+			</p>
+		</div>
+	</tr>
+	</table>
+</div>
+</section>
+</section>
+<div class="mainLine">
+</div>
+<section id="middleBar_thu" class="middle">
+<section class="middleTop"><b>thu</b></section>
+<section class="displayArea_thu"><b>목요일 목록</b>
+<div>
+	<table>
+	<tr>
+		<div class="doContent">
+			<span class="close" style="float:right;">&times;</span>
+			<p>
+				할일할일1
+			</p>
+		</div>
+	</tr>
+	<tr>
+		<div class="doContent">
+			<span class="close" style="float:right;">&times;</span>
+			<p>
+				할일할일2
+			</p>
+		</div>
+	</tr>
+	</table>
+</div>
+</section>
+</section>
+<div class="mainLine">
+</div>
+<section id="middleBar_Fri" class="middle">
+<section class="middleTop"><b>Fri</b></section>
+<section class="displayArea_Fri"><b>금요일 목록</b>
+<div>
+	<table>
+	<tr>
+		<div class="doContent">
+			<span class="close" style="float:right;">&times;</span>
+			<p>
+				할일할일1
+			</p>
+		</div>
+	</tr>
+	<tr>
+		<div class="doContent">
+			<span class="close" style="float:right;">&times;</span>
+			<p>
+				할일할일2
+			</p>
+		</div>
+	</tr>
+	</table>
+</div>
+</section>
+</section>
+</main>
+</article>
+<div id="addModal" class="modal">
+	<div class="modal-content">
+		<div class="modal-header">
+			<div class="modal-body">
+				<section id="writingTransparentBorder"></section>
+				<!-- Add ToDo Button View -->
+				<section id="writingFormContainer">
+				<img id="close1" src="img/delete.png" onclick="function()">
+				<br>
+				<br>
+				<div style="text-align:center">
+					<table>
+					<tr>
+						<td>
+							<select>
+								<option value="" disabled selected hidden>day</option>
+								<option>Mon</option>
+								<option>Tue</option>
+								<option>Wed</option>
+								<option>Thu</option>
+								<option>Fri</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" id="title" placeholder="Title"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<textarea rows="5" cols="30" name="contents"></textarea>
+						</td>
+					</tr>
+					</table>
+				</div>
+				<button id="addBtn" style="float:right;">Add</button>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+<div id="modifyModal" class="modal">
+	<div class="modal-content">
+		<div class="modal-header">
+			<div class="modal-body">
+				<section id="writingTransparentBorder"></section>
+				<!-- Add ToDo Button View -->
+				<section id="writingFormContainer">
+				<img id="close2" src="img/delete.png" onclick="function()">
+				<br>
+				<br>
+				<div style="text-align:center">
+					<table>
+					<tr>
+						<td>
+							<select>
+								<option value="" disabled selected hidden>day</option>
+								<option>Mon</option>
+								<option>Tue</option>
+								<option>Wed</option>
+								<option>Thu</option>
+								<option>Fri</option>
+							</select>
+						</td>
+					</tr>
+                    <tr>
+                        <td>
+                            <input type="text" id="number" placeholder=""/>
+                        </td>    
+                    </tr>
+					<tr>
+						<td>
+							<input type="text" id="title" placeholder="Title"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<textarea rows="5" cols="30" name="contents"></textarea>
+						</td>
+					</tr>
+					</table>
+				</div>
+				<button id="modifyBtn" style="float:right;">Done</button>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>    
+    
+<script>
+        var amodal = document.getElementById('addModal');
+        var mModal = document.getElementById('modifyModal');
+        var btn = document.getElementById("myBtn");
+        var btn2 = document.getElementById("conBtn");
+        var closeBtn = document.getElementById("close1");
+        var closeBtn2 = document.getElementById("close2");
+        console.log(closeBtn2.item);
+        var content = document.getElementsByClassName("doContent");
+        btn.onclick = function() {
+            amodal.style.display = "block";
+        }
+        btn2.onclick = function() {
+            mModal.style.display = "block";
+        }
+        closeBtn.onclick = function() {
+            if(amodal.style.display = "block") {
+                amodal.style.display = "none";
+            }
+        }
+        closeBtn2.onclick = function() {
+            if(mModal.style.display = "block") {
+                mModal.style.display = "none";
+            }
+        }
+        window.onclick = function(event) {
+            if (event.target == amodal) {
+                amodal.style.display = "none";
+            }
+            else if(event.target == mModal) {
+                mModal.style.display = "none";
+            }
+            
+        }
+        
+
+        
+    </script>
+</body>
+</html>

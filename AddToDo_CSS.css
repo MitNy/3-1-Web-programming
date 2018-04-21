@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+/* Add ToDo Button View */
+#writingFormContainer{
+	background-color: #ffffff;
+	width: auto;
+	height: auto;
+	margin: 100px 250px;
+    padding:10px;
+	position: absolute;
+	z-index: 3;
+}
+
+#writingTransparentBorder
+{
+	height: 100%;
+	width: 900px;
+	margin: 5;
+	position: absolute;
+	opacity: 0.5;
+	z-index: 2;
+}
+
+img{
+	width: 25px;
+	height: 25px;
+	float: right;
+	margin: 5px 5px;
+}
+/* Add ToDo Button View END*/
