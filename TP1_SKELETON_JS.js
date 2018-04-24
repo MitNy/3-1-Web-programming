@@ -6,6 +6,12 @@ var btn2 = document.getElementById("conBtn");
 
 var closeBtn = document.getElementById("close");
 
+var Mon = "Mon";
+var Tue = "Tue";
+var Wed = "Wed";
+var Thu = "Thu";
+var Fri = "Fri";
+
 var obj = {};
 var mon_array = [];
 var tue_array = [];
@@ -36,32 +42,107 @@ window.onclick = function (event) {
     }
 }
 
-/*function addFunction() {
-
+function resetItem() {
+    var day = document.getElementById("addDay");
+    var text = day.options[day.selectedIndex].text;
+    var title = document.getElementById("title").value;
+    var content = document.getElementById("contents").value;
     
-    alert(text);
-    
-    obj = {
-        input_day : text,
-        input_title : title,
-        input_content : content;
-    }
-    
-    if (text == "day" || content == "" || title == "") {
-        alert("빈 칸을 채워주세요.");
-        return false;
-    }
-    else {
-        localStorage.elements = obj;
-        alert(obj);
-    }
+    day = '';
+    text = '';
+    title = '';
+    content = '';
 }
 
-*/
+function getList(text) {
+    var text = text;
+    
+    
+    if( text == "Mon") {
+        var monContainer = document.getElementById("mon_table");
+        if( mon_array.length > 0 ) {
+            var domItems = [];
+
+            for( var i=0; i< mon_array.length; i++ ) {
+                domItems.push("<tr><div class='doContent' id='"+mon_index+"'><a id='conBtn' href='javascript:deleteElement("+text+","+mon_index+");' style='text-decoration:none; color:black;'><span id='"+mon_index+"' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+mon_array[i].input_title+"</p></div></a></tr>");
+            }
+
+            monContainer.innerHTML = domItems.join('');
+        }
+        else {
+        monContainer.innerHTML = "";
+        }
+    }
+    else if( text == "Tue") {
+        var tueContainer = document.getElementById("tue_table");
+        if( tue_array.length > 0 ) {
+            var domItems = [];
+
+            for( var i=0; i< tue_array.length; i++ ) {
+                domItems.push("<tr><div class='doContent' id='"+tue_index+"'><a id='conBtn' href='javascript:deleteElement("+text+","+tue_index+");' style='text-decoration:none; color:black;'><span id='"+tue_index+"' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+tue_array[i].input_title+"</p></div></a></tr>");
+            }
+
+            tueContainer.innerHTML = domItems.join('');
+        }
+        else {
+            tueContainer.innerHTML = "";
+        }
+    }
+    else if( text == "Wed") {
+        var wedContainer = document.getElementById("wed_table");
+        if( wed_array.length > 0 ) {
+            var domItems = [];
+
+            for( var i=0; i< wed_array.length; i++ ) {
+                domItems.push("<tr><div class='doContent' id='"+wed_index+"'><a id='conBtn' href='javascript:deleteElement("+text+","+wed_index+");' style='text-decoration:none; color:black;'><span id='"+wed_index+"' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+wed_array[i].input_title+"</p></div></a></tr>");
+            }
+
+            wedContainer.innerHTML = domItems.join('');
+        }
+        else {
+            wedContainer.innerHTML = "";
+        }
+    }    
+    else if( text == "Thu") {
+        var thuContainer = document.getElementById("thu_table");
+        if( thu_array.length > 0 ) {
+            
+            var domItems = [];
+
+            for( var i=0; i< thu_array.length; i++ ) {
+                domItems.push("<tr><div class='doContent' id='"+thu_index+"'><a id='conBtn' href='javascript:deleteElement("+text+","+thu_index+");' style='text-decoration:none; color:black;'><span id='"+thu_index+"' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+thu_array[i].input_title+"</p></div></a></tr>");
+            }
+
+            thuContainer.innerHTML = domItems.join('');
+        }
+        else {
+            thuContainer.innerHTML = "";
+        }
+    }
+    else if( text == "Fri") {
+        var friContainer = document.getElementById("fri_table");
+        if( fri_array.length > 0 ) {
+            var domItems = [];
+
+            for( var i=0; i< fri_array.length; i++ ) {
+                domItems.push("<tr><div class='doContent' id='"+fri_index+"'><a id='conBtn' href='javascript:deleteElement("+text+","+fri_index+");' style='text-decoration:none; color:black;'><span id='"+fri_index+"' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+fri_array[i].input_title+"</p></div></a></tr>");
+            }
+
+            friContainer.innerHTML = domItems.join('');
+        }
+        else {
+            friContainer.innerHTML = "";
+        }
+    }
+}
+    /*
+document.getElementById("mon_table").innerHTML += "<tr><div class='doContent' id='"+mon_index+"'><a id='conBtn' href='javascript:deleteElement("+text+","+mon_index+");' style='text-decoration:none; color:black;'><span id='"+mon_index+"' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+mon_array[mon_index].input_title+"</p></div></a></tr>";*/
+
 
 function openModify() {
     mModal.style.display = "block";
 }
+
 
 function addFunction() {
     var day = document.getElementById("addDay");
@@ -81,41 +162,59 @@ function addFunction() {
     else {
         if( text == "Mon") {
             closeAddModal();
-            localStorage.setItem(mon_array.push(object),mon_array);
-            document.getElementById("mon_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'><span id='close' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+mon_array[mon_index].input_title+"</p></div></a></tr>";
-            mon_inex++;
+            mon_array.push(object);
+            getList(text);
         }
         else if( text == "Tue") {
             closeAddModal();
-            localStorage.setItem(tue_array.push(object),tue_array);
-            document.getElementById("tue_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'><span id='close' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+tue_array[tue_index].input_title+"</p></div></a></tr>";
-            tue_inex++;
+            tue_array.push(object);
+            getList(text);
         }
         else if( text == "Wed") {
             closeAddModal();
-            localStorage.setItem(wed_array.push(object),wed_array);
-            document.getElementById("wed_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'><span id='close' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+wed_array[wed_index].input_title+"</p></div></a></tr>";
-            wed_inex++;
+            wed_array.push(object);
+            getList(text);
         }
         else if( text == "Thu") {
             closeAddModal();
-            localStorage.setItem(thu_array.push(object),thu_array);
-            document.getElementById("thu_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'><span id='close' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+thu_array[thu_index].input_title+"</p></div></a></tr>";
-            thu_inex++;
+            thu_array.push(object);
+            getList(text);
         }
         else if( text == "Fri") {
             closeAddModal();
-            localStorage.setItem(fri_array.push(object),fri_array);
-            document.getElementById("fri_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'><span id='close' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+fri_array[fri_index].input_title+"</p></div></a></tr>";
-            fri_inex++;
+            fri_array.push(object);
+            getList(text);
         }
  }
 }
 
 
 
-function deleteElement() {
-    alert("a");
+function deleteElement(this_array,index) {
+    
+    var speId = "div"+index;
+    var dive = document.getElementById(speId);
+    if( this_array == "Mon" ) {
+        mon_array.splice(index,1);
+        getList(this_array);
+        console.log(mon_array);
+    }
+    else if( this_array == "Tue") {
+        tue_array.splice(index,1);
+        getList(this_array);
+    }
+    else if( this_array == "Wed") {
+        wed_array.splice(index,1);
+        getList(this_array);
+    }
+    else if( this_array == "Thu") {
+        thu_array.splice(index,1);
+        getList(this_array);
+    }
+    else if( this_array == "Fri") {
+        fri_array.splice(index,1);
+        getList(this_array);
+    }
 }
 
 function search() {
