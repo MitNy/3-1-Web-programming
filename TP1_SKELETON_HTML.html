@@ -14,7 +14,6 @@
 <button id="myBtn" style="float:left;">Add ToDo</button>
 <!-- Header (Add ToDo 버튼, keyword 검색) -->
 <div>
-<form action="" onsubmit="return search()" method="post">
 <select id="selectDay">
 	<option value="" disabled selected hidden>day</option>
 	<option value="1">Mon</option>
@@ -23,8 +22,7 @@
 	<option value="4">Thu</option>
 	<option value="5">Fri</option>
 </select>
-<input type="search" id="myInput" placeholder="Enter your keyword here"/>
-</form>
+<input type="text" id="myInput" onkeyup="search()" placeholder="Enter your keyword here">
 </div>
 </header>
 <main id="content">
