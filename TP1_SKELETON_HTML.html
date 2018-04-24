@@ -11,9 +11,9 @@
 <body>
 <article>
 <header>
-<button id="myBtn" style="float:left;">Add ToDo</button>
+<button id="myBtn">Add ToDo</button>
 <!-- Header (Add ToDo 버튼, keyword 검색) -->
-<div>
+<div id="searchBar">
 <select id="selectDay">
 	<option value="0">day</option>
 	<option value="1">Mon</option>
@@ -136,15 +136,14 @@
 				<section id="writingTransparentBorder"></section>
 				<!-- Add ToDo Button View -->
 				<section id="writingFormContainer">
-                <form>
 				<img id="close2" src="img/delete.png" onclick="closeModifyModal()">
 				<br>
 				<br>
-				<div style="text-align:center">
+				<div>
 					<table>
 					<tr>
 						<td>
-							<select>
+							<select id="modifyDay">
 								<!--<option value="" disabled selected hidden>day</option> -->
 								<option value="Mon">Mon</option>
 								<option value="Tue">Tue</option>
@@ -161,18 +160,17 @@
                     </tr>
 					<tr>
 						<td>
-							<input type="text" id="title" name="title" placeholder="Title"/>
+							<input type="text" id="e_title" name="e_title" placeholder="Title"/>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<textarea rows="5" cols="30" id="contents" name="contents"></textarea>
+							<textarea rows="5" cols="30" id="e_contents" name="e_contents"></textarea>
 						</td>
 					</tr>
 					</table>
 				</div>
-				<input type="submit" id="modifyBtn" style="float:right;" value="Done"/>
-                </form>
+				<button id="addBtn" onclick="ModifyFunction()">Done</button>
 				</section>
 			</div>
 		</div>

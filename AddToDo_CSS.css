@@ -5,17 +5,16 @@
 	background-color: #ffffff;
 	width: auto;
 	height: auto;
-	margin: 100px 250px;
+    margin-left: auto; margin-right: auto;
     padding:10px;
-	position: absolute;
 	z-index: 3;
 }
 
 #writingTransparentBorder
 {
-	height: 100%;
-	width: 900px;
-	margin: 5;
+	height: auto;
+	width: auto;
+	margin: auto;
 	position: absolute;
 	opacity: 0.5;
 	z-index: 2;
