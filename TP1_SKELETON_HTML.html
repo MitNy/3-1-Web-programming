@@ -6,140 +6,83 @@
 <!-- CSS, JS External 정의 -->
 <link rel="stylesheet" type="text/css" href="AddToDo_CSS.css">
 <link rel="stylesheet" type="text/css" href="TP1_SKELETON_CSS.css">
-</head>
+<script src="TP1_SKELETON_JS.js"></script>
+    </head>
 <body>
 <article>
 <header>
 <button id="myBtn" style="float:left;">Add ToDo</button>
 <!-- Header (Add ToDo 버튼, keyword 검색) -->
 <div>
-<select>
+<form action="" onsubmit="return search()" method="post">
+<select id="selectDay">
 	<option value="" disabled selected hidden>day</option>
-	<option>Mon</option>
-	<option>Tue</option>
-	<option>Wed</option>
-	<option>Thu</option>
-	<option>Fri</option>
+	<option value="1">Mon</option>
+	<option value="2">Tue</option>
+	<option value="3">Wed</option>
+	<option value="4">Thu</option>
+	<option value="5">Fri</option>
 </select>
 <input type="search" id="myInput" placeholder="Enter your keyword here"/>
+</form>
 </div>
 </header>
 <main id="content">
 <!-- Middle Bar A~D, Display Area A~D -->
 <section id="middleBar_mon" class="middle">
 <section class="middleTop"><b>mon</b></section>
-<section class="displayArea_mon"><b>월요일 목록</b>
+<section class="displayArea_mon"><b>월요일 목록</b></section>
 <div>
-	<table>
-    <script>
-        for( var i=0; i<3; i++ ){
-            document.write('<tr>');
-            document.write('<div class="doContent">');
-            document.write('<a id="conBtn">');
-            document.write('<span class="close" style="float:right;">&times;</span>');
-            document.write('<p>123</p>');
-            document.write('</div>');
-            document.write('</a>');
-            document.write('</tr>');
-        }    
-    </script>
+	<table id="mon_table">
+
 	</table>
 </div>
 </section>
-</section>
+
 <!--경계선-->
 <div class="mainLine">
 </div>
 <section id="middleBar_tue" class="middle">
 <section class="middleTop"><b>tue</b></section>
-<section class="displayArea_tue"><b>화요일 목록</b>
+<section class="displayArea_tue"><b>화요일 목록</b></section>
 <div>
-	<table>
-    <script>
-        for( var i=0; i<3; i++ ){
-            document.write('<tr>');
-            document.write('<div class="doContent">');
-            document.write('<a id="conBtn">');
-            document.write('<span class="close" style="float:right;">&times;</span>');
-            document.write('<p>123</p>');
-            document.write('</div>');
-            document.write('</a>');
-            document.write('</tr>');
-        }    
-    </script>
+	<table id="tue_table">
+
 	</table>
 </div>
-</section>
 </section>
 <div class="mainLine">
 </div>
 <section id="middleBar_wed" class="middle">
 <section class="middleTop"><b>wed</b></section>
-<section class="displayArea_wed"><b>수요일 목록</b>
+<section class="displayArea_wed"><b>수요일 목록</b></section>
 <div>
-	<table>
-    <script>
-        for( var i=0; i<3; i++ ){
-            document.write('<tr>');
-            document.write('<div class="doContent">');
-            document.write('<a id="conBtn">');
-            document.write('<span class="close" style="float:right;">&times;</span>');
-            document.write('<p>123</p>');
-            document.write('</div>');
-            document.write('</a>');
-            document.write('</tr>');
-        }    
-    </script>
+	<table id="wed_table">
+
 	</table>
 </div>
-</section>
 </section>
 <div class="mainLine">
 </div>
 <section id="middleBar_thu" class="middle">
 <section class="middleTop"><b>thu</b></section>
-<section class="displayArea_thu"><b>목요일 목록</b>
+<section class="displayArea_thu"><b>목요일 목록</b></section>
 <div>
-	<table>
-    <script>
-        for( var i=0; i<3; i++ ){
-            document.write('<tr>');
-            document.write('<div class="doContent">');
-            document.write('<a id="conBtn">');
-            document.write('<span class="close" style="float:right;">&times;</span>');
-            document.write('<p>123</p>');
-            document.write('</div>');
-            document.write('</a>');
-            document.write('</tr>');
-        }    
-    </script>
+	<table id="thu_table">
 	</table>
 </div>
-</section>
 </section>
 <div class="mainLine">
 </div>
 <section id="middleBar_Fri" class="middle">
 <section class="middleTop"><b>Fri</b></section>
-<section class="displayArea_Fri"><b>금요일 목록</b>
+<section class="displayArea_Fri"><b>금요일 목록</b></section>
 <div>
-	<table>
-    <script>
-        for( var i=0; i<3; i++ ){
-            document.write('<tr>');
-            document.write('<div class="doContent">');
-            document.write('<a class="conBtn">');
-            document.write('<span class="close" style="float:right;">&times;</span>');
-            document.write('<p>123</p>');
-            document.write('</div>');
-            document.write('</a>');
-            document.write('</tr>');
-        }    
-    </script>
+	<table id="fri_table">
 	</table>
 </div>
 </section>
-</section>
+
 </main>
 </article>
 <div id="addModal" class="modal">
@@ -149,20 +92,21 @@
 				<section id="writingTransparentBorder"></section>
 				<!-- Add ToDo Button View -->
 				<section id="writingFormContainer">
-				<img id="close1" src="img/delete.png" onclick="function()">
+				<img id="close1" src="img/delete.png" onclick="closeAddModal()">
 				<br>
 				<br>
-				<div style="text-align:center">
+                
+				<div>
 					<table>
 					<tr>
 						<td>
-							<select>
-								<option value="" disabled selected hidden>day</option>
-								<option>Mon</option>
-								<option>Tue</option>
-								<option>Wed</option>
-								<option>Thu</option>
-								<option>Fri</option>
+							<select id="addDay" name="addDay" >
+                                <option value="" disabled selected hidden>day</option>
+								<option value="1">Mon</option>
+								<option value="2">Tue</option>
+								<option value="3">Wed</option>
+								<option value="4">Thu</option>
+								<option value="5">Fri</option>
 							</select>
 						</td>
 					</tr>
@@ -173,14 +117,16 @@
 					</tr>
 					<tr>
 						<td>
-							<textarea rows="5" cols="30" name="contents"></textarea>
+							<textarea rows="5" cols="30" id="contents" name="contents"></textarea>
 						</td>
 					</tr>
 					</table>
 				</div>
-				<button id="addBtn" style="float:right;">Add</button>
+                <button id="addBtn" onclick="addFunction()">Add</button>
 				</section>
+                
 			</div>
+                
 		</div>
 	</div>
 </div>
@@ -192,7 +138,8 @@
 				<section id="writingTransparentBorder"></section>
 				<!-- Add ToDo Button View -->
 				<section id="writingFormContainer">
-				<img id="close2" src="img/delete.png" onclick="function()">
+                <form>
+				<img id="close2" src="img/delete.png" onclick="closeModifyModal()">
 				<br>
 				<br>
 				<div style="text-align:center">
@@ -200,77 +147,39 @@
 					<tr>
 						<td>
 							<select>
-								<option value="" disabled selected hidden>day</option>
-								<option>Mon</option>
-								<option>Tue</option>
-								<option>Wed</option>
-								<option>Thu</option>
-								<option>Fri</option>
+								<!--<option value="" disabled selected hidden>day</option> -->
+								<option value="Mon">Mon</option>
+								<option value="Tue">Tue</option>
+								<option value="Wed">Wed</option>
+								<option value="Thu">Thu</option>
+								<option value="Fri">Fri</option>
 							</select>
 						</td>
 					</tr>
                     <tr>
                         <td>
-                            <input type="text" id="number" placeholder=""/>
+                            <input type="text" id="number" name="number" placeholder=""/>
                         </td>    
                     </tr>
 					<tr>
 						<td>
-							<input type="text" id="title" placeholder="Title"/>
+							<input type="text" id="title" name="title" placeholder="Title"/>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<textarea rows="5" cols="30" name="contents"></textarea>
+							<textarea rows="5" cols="30" id="contents" name="contents"></textarea>
 						</td>
 					</tr>
 					</table>
 				</div>
-				<button id="modifyBtn" style="float:right;">Done</button>
+				<input type="submit" id="modifyBtn" style="float:right;" value="Done"/>
+                </form>
 				</section>
 			</div>
 		</div>
 	</div>
-</div>    
-    
-<script>
-        var amodal = document.getElementById('addModal');
-        var mModal = document.getElementById('modifyModal');
-        var btn = document.getElementById("myBtn");
-        var btn2 = document.getElementById("conBtn");
-        //var btn2 = document.getElementsByClassName("conBtn");
-        var closeBtn = document.getElementById("close1");
-        var closeBtn2 = document.getElementById("close2");
-        console.log(closeBtn2.item);
-        var content = document.getElementsByClassName("doContent");
-        btn.onclick = function() {
-            amodal.style.display = "block";
-        }
-        btn2.onclick = function() {
-            mModal.style.display = "block";
-        }
-        closeBtn.onclick = function() {
-            if(amodal.style.display = "block") {
-                amodal.style.display = "none";
-            }
-        }
-        closeBtn2.onclick = function() {
-            if(mModal.style.display = "block") {
-                mModal.style.display = "none";
-            }
-        }
-        window.onclick = function(event) {
-            if (event.target == amodal) {
-                amodal.style.display = "none";
-            }
-            else if(event.target == mModal) {
-                mModal.style.display = "none";
-            }
-            
-        }
-        
-
-        
-    </script>
+</div>
+<script src="TP1_JS.js"></script>
 </body>
 </html>

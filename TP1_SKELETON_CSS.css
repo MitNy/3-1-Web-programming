@@ -1,10 +1,12 @@
 @CHARSET "UTF-8";
 
 html{
+    margin-left: auto; margin-right: auto;
 	height: 100%;
 }
 
 body{
+    margin-left: auto; margin-right: auto;
     font-family: Arial, Helvetica, sans-serif;
 	background-color: #ffffff;
 	height: 100%;
@@ -33,6 +35,8 @@ header{
 }
 
 header > button {
+    background-color:whitesmoke;
+    border-radius: 5px;
     border: solid 1px;
     padding: 10px;
     margin : 10px;
@@ -65,35 +69,35 @@ main{
 
 .displayArea_mon{
 	background-color: #cfe0e0;
-	height: 95%;
+	height: auto;
 	text-align: center;
 	vertical-align: middle;
 }
 
 .displayArea_tue{
 	background-color: #e9b7b7;
-	height: 95%;
+	height: auto;
 	text-align: center;
 	vertical-align: middle;
 }
 
 .displayArea_wed{
 	background-color: #cce0e0;
-	height: 95%;
+	height: auto;
 	text-align: center;
 	vertical-align: middle;
 }
 
 .displayArea_thu{
 	background-color: #e2ddc0;
-	height: 95%;
+	height: auto;
 	text-align: center;
 	vertical-align: middle;
 }
 
 .displayArea_Fri{
 	background-color: skyblue;
-	height: 95%;
+	height: auto;
 	text-align: center;
 	vertical-align: middle;
 }
@@ -116,13 +120,17 @@ input {
     width:200px;
 }
 
-       .doContent {
+.doContent {
+            text-align: center;
             margin: 10px;
             border: 1px solid #888;
             border-radius: 3px;
-            background-color: white;
-        }
-        .modal {
+            background-color:whitesmoke;
+            width:120px;
+            height: auto;
+    
+}
+.modal {
             display: none;
             /* Hidden by default */
             position: fixed;
@@ -143,7 +151,15 @@ input {
             /* Fallback color */
             background-color: rgba(0, 0, 0, 0.4);
             /* Black w/ opacity */
+            margin-left: auto; margin-right: auto;
         }
+
+.modal button {
+   background-color:whitesmoke;
+    border-radius: 5px;
+    border: solid 1px;
+    padding: 10px 20px;
+}
         /* Modal Content */
         .modal-content {
             position: relative;
