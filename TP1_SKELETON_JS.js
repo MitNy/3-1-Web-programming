@@ -4,6 +4,8 @@ var objArray = [];
 var input = document.getElementById("addBtn");
 var btn2 = document.getElementById("conBtn");
 
+var closeBtn = document.getElementById("close");
+
 var obj = {};
 var mon_array = [];
 var tue_array = [];
@@ -77,39 +79,43 @@ function addFunction() {
         alert("빈 칸을 채워주세요.");
     }
     else {
-    
-    if( text == "Mon") {
-        localStorage.setItem(mon_array.push(object),mon_array);
-        document.getElementById("mon_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><span class='close' style='float:right;'>&times;</span><p>"+mon_array[mon_index].input_title+"</p></div></a></tr>";
-        mon_inex++;  
-    }
-    else if( text == "Tue") {
-        localStorage.setItem(tue_array.push(object),tue_array);
-        document.getElementById("tue_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><span class='close' style='float:right;'>&times;</span><p>"+tue_array[tue_index].input_title+"</p></div></a></tr>";
-        tue_inex++;
-    }
-    else if( text == "Wed") {
-        localStorage.setItem(wed_array.push(object),wed_array);
-        document.getElementById("wed_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><span class='close' style='float:right;'>&times;</span><p>"+wed_array[wed_index].input_title+"</p></div></a></tr>";
-        wed_inex++;         
-    }
-    else if( text == "Thu") {
-        localStorage.setItem(thu_array.push(object),thu_array);
-        document.getElementById("thu_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><span class='close' style='float:right;'>&times;</span><p>"+thu_array[thu_index].input_title+"</p></div></a></tr>";
-        thu_inex++;       
-    }
-    else if( text == "Fri") {
-        localStorage.setItem(fri_array.push(object),fri_array);
-        document.getElementById("fri_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><span class='close' style='float:right;'>&times;</span><p>"+fri_array[fri_index].input_title+"</p></div></a></tr>";
-        fri_inex++;         
-    }
+        if( text == "Mon") {
+            closeAddModal();
+            localStorage.setItem(mon_array.push(object),mon_array);
+            document.getElementById("mon_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'><span id='close' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+mon_array[mon_index].input_title+"</p></div></a></tr>";
+            mon_inex++;
+        }
+        else if( text == "Tue") {
+            closeAddModal();
+            localStorage.setItem(tue_array.push(object),tue_array);
+            document.getElementById("tue_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'><span id='close' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+tue_array[tue_index].input_title+"</p></div></a></tr>";
+            tue_inex++;
+        }
+        else if( text == "Wed") {
+            closeAddModal();
+            localStorage.setItem(wed_array.push(object),wed_array);
+            document.getElementById("wed_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'><span id='close' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+wed_array[wed_index].input_title+"</p></div></a></tr>";
+            wed_inex++;
+        }
+        else if( text == "Thu") {
+            closeAddModal();
+            localStorage.setItem(thu_array.push(object),thu_array);
+            document.getElementById("thu_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'><span id='close' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+thu_array[thu_index].input_title+"</p></div></a></tr>";
+            thu_inex++;
+        }
+        else if( text == "Fri") {
+            closeAddModal();
+            localStorage.setItem(fri_array.push(object),fri_array);
+            document.getElementById("fri_table").innerHTML += "<tr><div class='doContent'><a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'><span id='close' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+fri_array[fri_index].input_title+"</p></div></a></tr>";
+            fri_inex++;
+        }
  }
 }
 
 
+
 function deleteElement() {
-    var element = document.getElementsByClassName("doContent")[5];
-    element.style.display="none";
+    alert("a");
 }
 
 function search() {
