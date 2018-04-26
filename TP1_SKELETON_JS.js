@@ -1,18 +1,11 @@
-var amodal = document.getElementById('addModal');
-var mModal = document.getElementById('modifyModal');
-var objArray = [];
-var input = document.getElementById("addBtn");
-var btn2 = document.getElementById("conBtn");
-
-var closeBtn = document.getElementById("close");
-
+/* 요일 관련 문자열 변수 */
 var Mon = "Mon";
 var Tue = "Tue";
 var Wed = "Wed";
 var Thu = "Thu";
 var Fri = "Fri";
 
-var obj = {};
+/* 요일별 처리를 위한 배열 및 인덱스 선언*/
 var mon_array = [];
 var tue_array = [];
 var wed_array = [];
@@ -24,43 +17,48 @@ var wed_index = 0;
 var thu_index = 0;
 var fri_index = 0;
 
+/* Add ToDo Modal 열기 */
+function openAddModal() {
+    document.getElementById("addModal").style.display = "block";
+}
+
+/* Add toDo Modal 닫기 */
 function closeAddModal() {
-        amodal.style.display = "none";
+        document.getElementById("addModal").style.display = "none";
 }
 
+/* Modify Modal 닫기 */
 function closeModifyModal() {
-        mModal.style.display = "none";
+        document.getElementById("modifyModal").style.display = "none";
 }
 
+/* Modal 창 밖 영역 클릭시 Modal 닫기 */
 window.onclick = function (event) {
-    if (event.target == amodal) {
-        amodal.style.display = "none";
-    } else if (event.target == mModal) {
-        mModal.style.display = "none";
+    if (event.target == document.getElementById("addModal")) {
+        document.getElementById("addModal").style.display = "none";
+    } else if (event.target == document.getElementById("modifyModal")) {
+        document.getElementById("modifyModal").style.display = "none";
     }
 }
 
+/* Add시 입력한 값 초기화 */
 function resetItem() {
     var day = document.getElementById("addDay");
-    var text = day.options[day.selectedIndex].text;
-    var title = document.getElementById("title").value;
-    var content = document.getElementById("contents").value;
-    
-    day = '';
-    text = '';
-    title = '';
-    content = '';
+    document.getElementById("title").value = "";
+    document.getElementById("contents").value = "";
+
 }
 // 갱신
 function getList(text) {
     var text = text;
+    // case : 월요일
     if( text == "Mon") {
         var monContainer = document.getElementById("mon_table");
         if( mon_array.length > 0 ) {
             var domItems = [];
 
             for( var i=0; i< mon_array.length; i++ ) {
-                domItems.push("<tr><div class='doContent' id='"+mon_index+"'><a id='conBtn' href='javascript:deleteElement("+text+","+i+");' style='text-decoration:none; color:black;'><span id='"+mon_index+"' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify("+text+","+i+");' style='text-decoration:none; color:black;'><p id='re'>"+mon_array[i].input_title+"</p></a></div></tr>");
+                domItems.push("<tr><div class='doContent' id='"+mon_index+"'><a id='conBtn' href='javascript:deleteElement("+text+","+i+");' style='text-decoration:none; color:black;'><span id='"+mon_index+"' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify("+text+","+i+");' style='text-decoration:none; color:black;'><p>"+mon_array[i].input_title+"</p></a></div></tr>");
             }
 
             monContainer.innerHTML = domItems.join('');
@@ -69,6 +67,8 @@ function getList(text) {
         monContainer.innerHTML = "";
         }
     }
+    
+    // case : 화요일
     else if( text == "Tue") {
         var tueContainer = document.getElementById("tue_table");
         if( tue_array.length > 0 ) {
@@ -84,6 +84,7 @@ function getList(text) {
             tueContainer.innerHTML = "";
         }
     }
+    // case : 수요일
     else if( text == "Wed") {
         var wedContainer = document.getElementById("wed_table");
         if( wed_array.length > 0 ) {
@@ -98,7 +99,8 @@ function getList(text) {
         else {
             wedContainer.innerHTML = "";
         }
-    }    
+    }
+    // case : 목요일
     else if( text == "Thu") {
         var thuContainer = document.getElementById("thu_table");
         if( thu_array.length > 0 ) {
@@ -115,6 +117,7 @@ function getList(text) {
             thuContainer.innerHTML = "";
         }
     }
+    // case : 금요일
     else if( text == "Fri") {
         var friContainer = document.getElementById("fri_table");
         if( fri_array.length > 0 ) {
@@ -131,12 +134,11 @@ function getList(text) {
         }
     }
 }
-    /*
-document.getElementById("mon_table").innerHTML += "<tr><div class='doContent' id='"+mon_index+"'><a id='conBtn' href='javascript:deleteElement("+text+","+mon_index+");' style='text-decoration:none; color:black;'><span id='"+mon_index+"' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p>"+mon_array[mon_index].input_title+"</p></div></a></tr>";*/
 
-
+/* 각 element별 수정 모달 열기 */
 function openModify(this_array,index) {
-    mModal.style.display = "block";
+    document.getElementById("modifyModal").style.display = "block";
+    // 클릭한 element가 mon_array 요소 일 때 
     if( this_array == "Mon") {
         var day = document.getElementById("modifyDay");
         day.options[0].innerHTML = "Mon";
@@ -145,6 +147,7 @@ function openModify(this_array,index) {
         document.getElementById("e_contents").value = mon_array[index].input_content;
         document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+this_array+','+index+')">Done</button>'
     }
+    // 클릭한 element가 tue_array 요소 일 때
     else if( this_array == "Tue") {
         var day = document.getElementById("modifyDay");
         day.options[0].innerHTML = "Tue";
@@ -153,6 +156,7 @@ function openModify(this_array,index) {
         document.getElementById("e_contents").value = tue_array[index].input_content;
         document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+this_array+','+index+')">Done</button>'
     }
+    // 클릭한 element가 wed_array 요소 일 때
     else if( this_array == "Wed") {
         var day = document.getElementById("modifyDay");
         day.options[0].innerHTML = "Wed";
@@ -161,6 +165,7 @@ function openModify(this_array,index) {
         document.getElementById("e_contents").value = wed_array[index].input_content;
         document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+this_array+','+index+')">Done</button>'
     }
+    // 클릭한 element가 thu_array 요소 일 때
     else if( this_array == "Thu") {
         var day = document.getElementById("modifyDay");
         day.options[0].innerHTML = "Thu";
@@ -169,6 +174,7 @@ function openModify(this_array,index) {
         document.getElementById("e_contents").value = thu_array[index].input_content;
         document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+this_array+','+index+')">Done</button>'
     }
+    // 클릭한 element가 fri_array 요소 일 때
     else if( this_array == "Fri") {
         var day = document.getElementById("modifyDay");
         day.options[0].innerHTML = "Fri";
@@ -178,10 +184,11 @@ function openModify(this_array,index) {
         document.getElementById("e_contents").value = fri_array[index].input_content;
         document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+this_array+','+index+')">Done</button>'
     }
-
 }
 
+/* Add toTo Modal 에서 Add 버튼 클릭 시 실행 */
 function addFunction() {
+    getList(Mon);getList(Tue);getList(Wed);getList(Thu);getList(Fri);
     var day = document.getElementById("addDay");
     var text = day.options[day.selectedIndex].text;
     var title = document.getElementById("title").value;
@@ -192,6 +199,7 @@ function addFunction() {
         input_content: content
     }
     
+    // 빈 칸이 있으면 추가할 수 없음
     if( !text.length|| !title.length|| !content.length ) {
         alert("빈 칸을 채워주세요.");
     }
@@ -222,10 +230,11 @@ function addFunction() {
             getList(text);
         }
     }
+    resetItem();
 }
 
+/* 각 element별 Modify Modal에서 Done 클릭 시 실행 */ 
 function ModifyFunction(this_day,this_index) {
-    //var this_index = index;
     var day = document.getElementById("modifyDay");
     var number = document.getElementById("number").value;
     var text = day.options[day.selectedIndex].text;
@@ -238,15 +247,17 @@ function ModifyFunction(this_day,this_index) {
         input_content: content
     }
 
-    
+    // 빈 칸이 있으면 수정할 수 없음
     if( !text.length || !title.length|| !content.length || !number.length ) {
         alert("빈 칸을 채워주세요.");
     }
     else {
+        // 현재 클릭한 element가 월요일일 때
         if( this_day == "Mon") {
             closeModifyModal();
             closeAddModal();
-
+            
+            // 요일을 수정하려고 할 때
             if( text != "Mon" ) {
                 var targetArray = eval(text.toLowerCase()+'_array');
                 mon_array.splice(this_index,1);
@@ -270,10 +281,12 @@ function ModifyFunction(this_day,this_index) {
                 getList(text); 
             }
         }
+        // 현재 클릭한 element가 화요일일 때
         else if( this_day == "Tue") {
                 closeModifyModal();
                 closeAddModal();
             
+            // 요일을 수정하려고 할 때
             if( text != "Tue" ) {
                 var targetArray = eval(text.toLowerCase()+'_array');
                 tue_array.splice(this_index,1);
@@ -281,6 +294,7 @@ function ModifyFunction(this_day,this_index) {
                 getList("Tue");
                 getList(text);
             }
+            // 요일 수정 없이 같은 요일 내에서 내용만 변경
             else {
                 if(this_index != number) {
                     var targetArray = tue_array[this_index];
@@ -298,10 +312,12 @@ function ModifyFunction(this_day,this_index) {
             }
             
         }
+        // 현재 클릭한 element가 수요일일 때
         else if( this_day == "Wed") {
                 closeModifyModal();
                 closeAddModal();
 
+            // 요일을 수정하려고 할 때
             if( text != "Wed" ) {
                 var targetArray = eval(text.toLowerCase()+'_array');
                 wed_array.splice(this_index,1);
@@ -309,6 +325,7 @@ function ModifyFunction(this_day,this_index) {
                 getList("Wed");
                 getList(text);
             }
+            // 요일 수정 없이 같은 요일 내에서 내용만 변경
             else {
                 if(this_index != number) {
                     var targetArray = wed_array[this_index];
@@ -325,10 +342,12 @@ function ModifyFunction(this_day,this_index) {
                 getList(text); 
             }
         }
+        // 현재 클릭한 element가 목요일일 때
         else if( this_day == "Thu") {
             closeModifyModal();
             closeAddModal();
             
+            // 요일을 수정하려고 할 때
             if( text != "Thu" ) {
                 var targetArray = eval(text.toLowerCase()+'_array');
                 thu_array.splice(this_index,1);
@@ -336,6 +355,7 @@ function ModifyFunction(this_day,this_index) {
                 getList("Thu");
                 getList(text);
             }
+            // 요일 수정 없이 같은 요일 내에서 내용만 변경
             else {
                 if(this_index != number) {
                     var targetArray = thu_array[this_index];
@@ -352,10 +372,12 @@ function ModifyFunction(this_day,this_index) {
                 getList(text); 
             }
         }
+        // 현재 클릭한 element가 금요일일 때
         else if( this_day == "Fri") {
             closeModifyModal();
             closeAddModal();
             
+            // 요일을 수정하려고 할 때
             if( text != "Fri" ) {
                 var targetArray = eval(text.toLowerCase()+'_array');
                 fri_array.splice(this_index,1);
@@ -363,6 +385,7 @@ function ModifyFunction(this_day,this_index) {
                 getList("Fri");
                 getList(text);
             }
+            // 요일 수정 없이 같은 요일 내에서 내용만 변경
             else {
                 if(this_index != number) {
                     var targetArray = fri_array[this_index];
@@ -409,14 +432,6 @@ function deleteElement(this_array,index) {
         getList(this_array);
     }
 }
-/*
-function search() {
-    var day = document.getElementById("selectDay");
-    var text = day.options[day.selectedIndex].text;
-    alert(text);
-
-}
-*/
 function search() {
     var mon_table = document.getElementById("mon_table");
     var tue_table = document.getElementById("tue_table");
@@ -430,11 +445,11 @@ function search() {
   // Declare variables 
     if (window.event.keyCode == 13) {
         if( text == "day") {    // 모든 요일 검색
-            mon_table.style.display = "";
-            tue_table.style.display = "";
-            wed_table.style.display = "";
-            thu_table.style.display = "";
-            fri_table.style.display = "";
+            document.getElementById("mon_table").style.display = "";
+            document.getElementById("tue_table").style.display = "";
+            document.getElementById("wed_table").style.display = "";
+            document.getElementById("thu_table").style.display = "";
+            document.getElementById("fri_table").style.display = "";
             input = document.getElementById("myInput");
             filter = input.value;
             var mon_div = mon_table.getElementsByTagName("div");
@@ -492,11 +507,11 @@ function search() {
             
         }
         else if( text == "Mon") {   // 월요일 내에서 검색
-            mon_table.style.display = "";
-            tue_table.style.display = "none";
-            wed_table.style.display = "none";
-            thu_table.style.display = "none";
-            fri_table.style.display = "none";
+            document.getElementById("mon_table").style.display = "";
+            document.getElementById("tue_table").style.display = "none";
+            document.getElementById("wed_table").style.display = "none";
+            document.getElementById("thu_table").style.display = "none";
+            document.getElementById("fri_table").style.display = "none";
             input = document.getElementById("myInput");
             filter = input.value;
             div = mon_table.getElementsByTagName("div");
@@ -512,11 +527,11 @@ function search() {
             }
         }
         else if( text == "Tue" ) {
-            mon_table.style.display = "none";
-            tue_table.style.display = "";
-            wed_table.style.display = "none";
-            thu_table.style.display = "none";
-            fri_table.style.display = "none";
+            document.getElementById("mon_table").style.display = "none";
+            document.getElementById("tue_table").style.display = "";
+            document.getElementById("wed_table").style.display = "none";
+            document.getElementById("thu_table").style.display = "none";
+            document.getElementById("fri_table").style.display = "none";
             input = document.getElementById("myInput");
             filter = input.value;
             div = tue_table.getElementsByTagName("div");
@@ -532,11 +547,11 @@ function search() {
             }           
         }
          else if( text == "Wed" ) {
-            mon_table.style.display = "none";
-            tue_table.style.display = "none";
-            wed_table.style.display = "";
-            thu_table.style.display = "none";
-            fri_table.style.display = "none";
+            document.getElementById("mon_table").style.display = "none";
+            document.getElementById("tue_table").style.display = "none";
+            document.getElementById("wed_table").style.display = "";
+            document.getElementById("thu_table").style.display = "none";
+            document.getElementById("fri_table").style.display = "none";
             input = document.getElementById("myInput");
             filter = input.value;
             div = wed_table.getElementsByTagName("div");
@@ -552,11 +567,11 @@ function search() {
             }           
         }       
         else if( text == "Thu" ) {
-            mon_table.style.display = "none";
-            tue_table.style.display = "none";
-            wed_table.style.display = "none";
-            thu_table.style.display = "";
-            fri_table.style.display = "none";
+            document.getElementById("mon_table").style.display = "none";
+            document.getElementById("tue_table").style.display = "none";
+            document.getElementById("wed_table").style.display = "none";
+            document.getElementById("thu_table").style.display = "";
+            document.getElementById("fri_table").style.display = "none";
             input = document.getElementById("myInput");
             filter = input.value;
             div = thu_table.getElementsByTagName("div");
@@ -572,15 +587,15 @@ function search() {
             }           
         }
         else if( text == "Fri" ) {
-            mon_table.style.display = "none";
-            tue_table.style.display = "none";
-            wed_table.style.display = "none";
-            thu_table.style.display = "none";
-            fri_table.style.display = "";
+            document.getElementById("mon_table").style.display = "none";
+            document.getElementById("tue_table").style.display = "none";
+            document.getElementById("wed_table").style.display = "none";
+            document.getElementById("thu_table").style.display = "none";
+            document.getElementById("fri_table").style.display = "";
             input = document.getElementById("myInput");
             filter = input.value;
             div = fri_table.getElementsByTagName("div");
-            p = document.getElementsByTagName("p");
+            //p = document.getElementsByTagName("p");
             for( i=0; i< div.length; i++ ) {
                 result = p[i].innerHTML;
                 if(result.indexOf(filter) > -1) {
@@ -591,5 +606,6 @@ function search() {
                 }
             }           
         }
-    }
+        document.getElementById("myInput").value = "";
+    }   
 }
