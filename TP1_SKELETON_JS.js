@@ -248,8 +248,9 @@ function ModifyFunction(this_day,this_index) {
             closeAddModal();
 
             if( text != "Mon" ) {
-                mon_array.splice(number,1);
-                eval(text.toLowerCase()+'_array').push(object);
+                var targetArray = eval(text.toLowerCase()+'_array');
+                mon_array.splice(this_index,1);
+                targetArray.splice(number,0,object);
                 getList("Mon");
                 getList(text);
             }
@@ -274,8 +275,9 @@ function ModifyFunction(this_day,this_index) {
                 closeAddModal();
             
             if( text != "Tue" ) {
-                tue_array.splice(number,1);
-                eval(text.toLowerCase()+'_array').push(object);
+                var targetArray = eval(text.toLowerCase()+'_array');
+                tue_array.splice(this_index,1);
+                targetArray.splice(number,0,object);
                 getList("Tue");
                 getList(text);
             }
@@ -301,8 +303,9 @@ function ModifyFunction(this_day,this_index) {
                 closeAddModal();
 
             if( text != "Wed" ) {
-                wed_array.splice(number,1);
-                eval(text.toLowerCase()+'_array').push(object);
+                var targetArray = eval(text.toLowerCase()+'_array');
+                wed_array.splice(this_index,1);
+                targetArray.splice(number,0,object);
                 getList("Wed");
                 getList(text);
             }
@@ -327,8 +330,9 @@ function ModifyFunction(this_day,this_index) {
             closeAddModal();
             
             if( text != "Thu" ) {
-                thu_array.splice(number,1);
-                eval(text.toLowerCase()+'_array').push(object);
+                var targetArray = eval(text.toLowerCase()+'_array');
+                thu_array.splice(this_index,1);
+                targetArray.splice(number,0,object);
                 getList("Thu");
                 getList(text);
             }
@@ -353,8 +357,9 @@ function ModifyFunction(this_day,this_index) {
             closeAddModal();
             
             if( text != "Fri" ) {
-                fri_array.splice(number,1);
-                eval(text.toLowerCase()+'_array').push(object);
+                var targetArray = eval(text.toLowerCase()+'_array');
+                fri_array.splice(this_index,1);
+                targetArray.splice(number,0,object);
                 getList("Fri");
                 getList(text);
             }
