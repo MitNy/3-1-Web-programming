@@ -143,7 +143,7 @@ function openModify(this_array,index) {
         document.getElementById("number").value = index;
         document.getElementById("e_title").value = mon_array[index].input_title;
         document.getElementById("e_contents").value = mon_array[index].input_content;
-        document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+index+')">Done</button>'
+        document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+this_array+','+index+')">Done</button>'
     }
     else if( this_array == "Tue") {
         var day = document.getElementById("modifyDay");
@@ -151,7 +151,7 @@ function openModify(this_array,index) {
         document.getElementById("number").value = index;
         document.getElementById("e_title").value = tue_array[index].input_title;
         document.getElementById("e_contents").value = tue_array[index].input_content;
-        document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+index+')">Done</button>'
+        document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+this_array+','+index+')">Done</button>'
     }
     else if( this_array == "Wed") {
         var day = document.getElementById("modifyDay");
@@ -159,7 +159,7 @@ function openModify(this_array,index) {
         document.getElementById("number").value = index;
         document.getElementById("e_title").value = wed_array[index].input_title;
         document.getElementById("e_contents").value = wed_array[index].input_content;
-        document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+index+')">Done</button>'
+        document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+this_array+','+index+')">Done</button>'
     }
     else if( this_array == "Thu") {
         var day = document.getElementById("modifyDay");
@@ -167,7 +167,7 @@ function openModify(this_array,index) {
         document.getElementById("number").value = index;
         document.getElementById("e_title").value = thu_array[index].input_title;
         document.getElementById("e_contents").value = thu_array[index].input_content;
-        document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+index+')">Done</button>'
+        document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+this_array+','+index+')">Done</button>'
     }
     else if( this_array == "Fri") {
         var day = document.getElementById("modifyDay");
@@ -176,7 +176,7 @@ function openModify(this_array,index) {
         document.getElementById("number").value = index;
         document.getElementById("e_title").value = fri_array[index].input_title;
         document.getElementById("e_contents").value = fri_array[index].input_content;
-        document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+index+')">Done</button>'
+        document.getElementById("modify_button").innerHTML='<button id="addBtn" onclick="ModifyFunction('+this_array+','+index+')">Done</button>'
     }
 
 }
@@ -224,8 +224,8 @@ function addFunction() {
     }
 }
 
-function ModifyFunction(index) {
-    var this_index = index;
+function ModifyFunction(this_day,this_index) {
+    //var this_index = index;
     var day = document.getElementById("modifyDay");
     var number = document.getElementById("number").value;
     var text = day.options[day.selectedIndex].text;
@@ -243,110 +243,136 @@ function ModifyFunction(index) {
         alert("빈 칸을 채워주세요.");
     }
     else {
-        if( text == "Mon") {
+        if( this_day == "Mon") {
             closeModifyModal();
             closeAddModal();
-            
-            if(this_index != number) {
-                var targetArray = mon_array[this_index];
-                var move = (number - this_index) / Math.abs(number - this_index);
-                
-                for( var element = this_index; element != number; element+=move) {
-                    mon_array[element] = mon_array[element+move];
-                }
-                mon_array[number] = targetArray;
-            
-            }
-            
-            /*
+
             if( text != "Mon" ) {
                 mon_array.splice(number,1);
                 eval(text.toLowerCase()+'_array').push(object);
                 getList("Mon");
                 getList(text);
             }
-            else {*/
+            else {
+                if(this_index != number) {
+                    var targetArray = mon_array[this_index];
+                    var move = (number - this_index) / Math.abs(number - this_index);
+
+                    for( var element = this_index; element != number; element+=move) {
+                        mon_array[element] = mon_array[element+move];
+                    }
+                    mon_array[number] = targetArray;
+                }
+                mon_array[number].input_day = text;
                 mon_array[number].input_title = title;
                 mon_array[number].input_content = content;
-                getList(text);
-           // }
+                getList(text); 
+            }
         }
-        if( tue_array[number].input_day == "Tue") {
+        else if( this_day == "Tue") {
                 closeModifyModal();
                 closeAddModal();
             
-            if(this_index != number) {
-                var targetArray = tue_array[this_index];
-                var move = (number - this_index) / Math.abs(number - this_index);
-                
-                for( var element = this_index; element != number; element+=move) {
-                    tue_array[element] = tue_array[element+move];
-                }
-                tue_array[number] = targetArray;
-            
+            if( text != "Tue" ) {
+                tue_array.splice(number,1);
+                eval(text.toLowerCase()+'_array').push(object);
+                getList("Tue");
+                getList(text);
             }
-            
+            else {
+                if(this_index != number) {
+                    var targetArray = tue_array[this_index];
+                    var move = (number - this_index) / Math.abs(number - this_index);
+
+                    for( var element = this_index; element != number; element+=move) {
+                        tue_array[element] = tue_array[element+move];
+                    }
+                    tue_array[number] = targetArray;
+                }
+                tue_array[number].input_day = text;
                 tue_array[number].input_title = title;
                 tue_array[number].input_content = content;
-                getList(text);
+                getList(text); 
+            }
+            
         }
-        else if( wed_array[number].input_day == "Wed") {
+        else if( this_day == "Wed") {
                 closeModifyModal();
                 closeAddModal();
 
-            if(this_index != number) {
-                var targetArray = wed_array[this_index];
-                var move = (number - this_index) / Math.abs(number - this_index);
-                
-                for( var element = this_index; element != number; element+=move) {
-                    wed_array[element] = wed_array[element+move];
-                }
-                wed_array[number] = targetArray;
-            
+            if( text != "Wed" ) {
+                wed_array.splice(number,1);
+                eval(text.toLowerCase()+'_array').push(object);
+                getList("Wed");
+                getList(text);
             }
-            
-                //wed_array[number].input_day = text;
+            else {
+                if(this_index != number) {
+                    var targetArray = wed_array[this_index];
+                    var move = (number - this_index) / Math.abs(number - this_index);
+
+                    for( var element = this_index; element != number; element+=move) {
+                        wed_array[element] = wed_array[element+move];
+                    }
+                    wed_array[number] = targetArray;
+                }
+                wed_array[number].input_day = text;
                 wed_array[number].input_title = title;
                 wed_array[number].input_content = content;
-                getList(text);
+                getList(text); 
+            }
         }
-        else if( thu_array[number].input_day == "Thu") {
+        else if( this_day == "Thu") {
             closeModifyModal();
             closeAddModal();
             
-            if(this_index != number) {
-                var targetArray = thu_array[this_index];
-                var move = (number - this_index) / Math.abs(number - this_index);
-                
-                for( var element = this_index; element != number; element+=move) {
-                    thu_array[element] = thu_array[element+move];
-                }
-                thu_array[number] = targetArray;
-            
+            if( text != "Thu" ) {
+                thu_array.splice(number,1);
+                eval(text.toLowerCase()+'_array').push(object);
+                getList("Thu");
+                getList(text);
             }
-            //mon_array[number].input_day = text;
+            else {
+                if(this_index != number) {
+                    var targetArray = thu_array[this_index];
+                    var move = (number - this_index) / Math.abs(number - this_index);
+
+                    for( var element = this_index; element != number; element+=move) {
+                        thu_array[element] = thu_array[element+move];
+                    }
+                    thu_array[number] = targetArray;
+                }
+                thu_array[number].input_day = text;
                 thu_array[number].input_title = title;
                 thu_array[number].input_content = content;
-                getList(text);
+                getList(text); 
+            }
         }
-        else if( text == "Fri") {
+        else if( this_day == "Fri") {
             closeModifyModal();
             closeAddModal();
-
-            if(this_index != number) {
-                var targetArray = fri_array[this_index];
-                var move = (number - this_index) / Math.abs(number - this_index);
-                
-                for( var element = this_index; element != number; element+=move) {
-                    fri_array[element] = fri_array[element+move];
-                }
-                fri_array[number] = targetArray;
             
+            if( text != "Fri" ) {
+                fri_array.splice(number,1);
+                eval(text.toLowerCase()+'_array').push(object);
+                getList("Fri");
+                getList(text);
             }
-            fri_array[number].input_day = text;
-            fri_array[number].input_title = title;
-            fri_array[number].input_content = content;
-            getList(text);
+            else {
+                if(this_index != number) {
+                    var targetArray = fri_array[this_index];
+                    var move = (number - this_index) / Math.abs(number - this_index);
+
+                    for( var element = this_index; element != number; element+=move) {
+                        fri_array[element] = fri_array[element+move];
+                    }
+                    fri_array[number] = targetArray;
+                }
+                fri_array[number].input_day = text;
+                fri_array[number].input_title = title;
+                fri_array[number].input_content = content;
+                getList(text); 
+            }
         }
     }
 }
