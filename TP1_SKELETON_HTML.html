@@ -11,31 +11,27 @@
 <body>
 <article>
 <header>
-<button id="myBtn" style="float:left;">Add ToDo</button>
+<button id="myBtn" onclick="openAddModal()">Add ToDo</button>
 <!-- Header (Add ToDo 버튼, keyword 검색) -->
-<div>
-<form action="" onsubmit="return search()" method="post">
+<div id="searchBar">
 <select id="selectDay">
-	<option value="" disabled selected hidden>day</option>
+	<option value="0" selected>day</option>
 	<option value="1">Mon</option>
 	<option value="2">Tue</option>
 	<option value="3">Wed</option>
 	<option value="4">Thu</option>
 	<option value="5">Fri</option>
 </select>
-<input type="search" id="myInput" placeholder="Enter your keyword here"/>
-</form>
+<input type="text" id="myInput" onkeyup="search()" placeholder="Enter your keyword here">
 </div>
 </header>
 <main id="content">
 <!-- Middle Bar A~D, Display Area A~D -->
 <section id="middleBar_mon" class="middle">
-<section class="middleTop"><b>mon</b></section>
-<section class="displayArea_mon"><b>월요일 목록</b></section>
+<section class="middleTop"><Strong>mon</Strong></section>
+<section class="displayArea_mon"><Strong>월요일 목록</Strong></section>
 <div>
-	<table id="mon_table">
-
-	</table>
+	<table id="mon_table"></table>
 </div>
 </section>
 
@@ -43,44 +39,31 @@
 <div class="mainLine">
 </div>
 <section id="middleBar_tue" class="middle">
-<section class="middleTop"><b>tue</b></section>
-<section class="displayArea_tue"><b>화요일 목록</b></section>
-<div>
-	<table id="tue_table">
-
-	</table>
-</div>
+<section class="middleTop"><Strong>tue</Strong></section>
+<section class="displayArea_tue"><Strong>화요일 목록</Strong></section>
+	<table id="tue_table"></table>
 </section>
 <div class="mainLine">
 </div>
 <section id="middleBar_wed" class="middle">
-<section class="middleTop"><b>wed</b></section>
-<section class="displayArea_wed"><b>수요일 목록</b></section>
-<div>
-	<table id="wed_table">
-
-	</table>
-</div>
+<section class="middleTop"><Strong>wed</Strong></section>
+<section class="displayArea_wed"><Strong>수요일 목록</Strong></section>
+	<table id="wed_table"></table>
 </section>
 <div class="mainLine">
 </div>
 <section id="middleBar_thu" class="middle">
-<section class="middleTop"><b>thu</b></section>
-<section class="displayArea_thu"><b>목요일 목록</b></section>
-<div>
-	<table id="thu_table">
-	</table>
-</div>
+<section class="middleTop"><Strong>thu</Strong></section>
+<section class="displayArea_thu"><Strong>목요일 목록</Strong></section>
+	<table id="thu_table"></table>
 </section>
 <div class="mainLine">
 </div>
 <section id="middleBar_Fri" class="middle">
-<section class="middleTop"><b>Fri</b></section>
-<section class="displayArea_Fri"><b>금요일 목록</b></section>
-<div>
-	<table id="fri_table">
-	</table>
-</div>
+<section class="middleTop"><Strong>Fri</Strong></section>
+<section class="displayArea_Fri"><Strong>금요일 목록</Strong></section>
+
+	<table id="fri_table"></table>
 </section>
 
 </main>
@@ -101,7 +84,7 @@
 					<tr>
 						<td>
 							<select id="addDay" name="addDay" >
-                                <option value="" disabled selected hidden>day</option>
+                                <option value="0" selected>day</option>
 								<option value="1">Mon</option>
 								<option value="2">Tue</option>
 								<option value="3">Wed</option>
@@ -138,21 +121,20 @@
 				<section id="writingTransparentBorder"></section>
 				<!-- Add ToDo Button View -->
 				<section id="writingFormContainer">
-                <form>
 				<img id="close2" src="img/delete.png" onclick="closeModifyModal()">
 				<br>
 				<br>
-				<div style="text-align:center">
+				<div>
 					<table>
 					<tr>
 						<td>
-							<select>
-								<!--<option value="" disabled selected hidden>day</option> -->
-								<option value="Mon">Mon</option>
-								<option value="Tue">Tue</option>
-								<option value="Wed">Wed</option>
-								<option value="Thu">Thu</option>
-								<option value="Fri">Fri</option>
+							<select id="modifyDay">
+								<option value="0" selected>day</option>
+								<option value="1">Mon</option>
+								<option value="2">Tue</option>
+								<option value="3">Wed</option>
+								<option value="4">Thu</option>
+								<option value="5">Fri</option>
 							</select>
 						</td>
 					</tr>
@@ -163,23 +145,22 @@
                     </tr>
 					<tr>
 						<td>
-							<input type="text" id="title" name="title" placeholder="Title"/>
+							<input type="text" id="e_title" name="e_title" placeholder="Title"/>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<textarea rows="5" cols="30" id="contents" name="contents"></textarea>
+							<textarea rows="5" cols="30" id="e_contents" name="e_contents"></textarea>
 						</td>
 					</tr>
 					</table>
 				</div>
-				<input type="submit" id="modifyBtn" style="float:right;" value="Done"/>
-                </form>
+                <div id="modify_button">
+                    </div>
 				</section>
 			</div>
 		</div>
 	</div>
 </div>
-<script src="TP1_JS.js"></script>
 </body>
 </html>
