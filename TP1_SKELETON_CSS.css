@@ -159,6 +159,7 @@ input {
     border-radius: 5px;
     border: solid 1px;
     padding: 10px 20px;
+    float:right;
 }
         /* Modal Content */
         .modal-content {
@@ -193,12 +194,25 @@ input {
             }
         }
         .modal-body {
-            padding: 2px 16px;
+            padding: 5px 16px;
         }
         ul {
             background: #cce5ff;
         }
+#searchBar{
+    display:inline;
+    padding-left:400px;
+}
 
+#selectDay {
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+}
 
+#myInput {
+    height: 30px;
+    border-radius: 5px;
+}
 
 /* Main End */
