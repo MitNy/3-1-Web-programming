@@ -1,7 +1,6 @@
-@CHARSET "UTF-8";
 
 /* Add ToDo Button View */
-#writingFormContainer{
+.writingFormContainer{
 	background-color: #ffffff;
 	width: auto;
 	height: auto;
@@ -11,11 +10,10 @@
 	z-index: 3;
 }
 
-#writingTransparentBorder
+.writingTransparentBorder
 {
 	height: 100%;
 	width: 900px;
-	margin: 5;
 	position: absolute;
 	opacity: 0.5;
 	z-index: 2;

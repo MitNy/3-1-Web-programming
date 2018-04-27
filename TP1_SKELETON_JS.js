@@ -48,7 +48,8 @@ function resetItem() {
     document.getElementById("contents").value = "";
 
 }
-// 갱신
+
+/* 목록 갱신 */
 function getList(text) {
     var text = text;
     // case : 월요일
@@ -406,7 +407,7 @@ function ModifyFunction(this_day,this_index) {
 }
 
 
-
+/* element 오른쪽 상단 x 버튼 클릭 시 element 삭제 */
 function deleteElement(this_array,index) {
     var speId = "div"+index;
     var dive = document.getElementById(speId);
@@ -432,6 +433,8 @@ function deleteElement(this_array,index) {
         getList(this_array);
     }
 }
+
+/* 검색 기능 */
 function search() {
     var mon_table = document.getElementById("mon_table");
     var tue_table = document.getElementById("tue_table");
@@ -442,9 +445,10 @@ function search() {
     var day = document.getElementById("selectDay");
     var text = day.options[day.selectedIndex].text;
     var input, filter, table, tr, p, i,result,div;
-  // Declare variables 
+    
+    // enter 누를 때만 검색
     if (window.event.keyCode == 13) {
-        if( text == "day") {    // 모든 요일 검색
+        if( text == "day") {    // 모든 요일 검색, 검색어가 없을 경우 모든 요일 목록 출력
             document.getElementById("mon_table").style.display = "";
             document.getElementById("tue_table").style.display = "";
             document.getElementById("wed_table").style.display = "";
@@ -511,7 +515,7 @@ function search() {
             }
             
         }
-        else if( text == "Mon") {   // 월요일 내에서 검색
+        else if( text == "Mon") {   // 월요일 내에서 검색, 검색어가 없을 경우 월요일 전체 목록 출력
             document.getElementById("mon_table").style.display = "";
             document.getElementById("tue_table").style.display = "none";
             document.getElementById("wed_table").style.display = "none";
@@ -531,7 +535,7 @@ function search() {
                 }
             }
         }
-        else if( text == "Tue" ) {
+        else if( text == "Tue" ) { // 화요일 내에서 검색, 검색어가 없을 경우 화요일 전체 목록 출력
             document.getElementById("mon_table").style.display = "none";
             document.getElementById("tue_table").style.display = "";
             document.getElementById("wed_table").style.display = "none";
@@ -551,6 +555,7 @@ function search() {
                 }
             }         
         }
+        // 수요일 내에서 검색, 검색어가 없을 경우 수요일 전체 목록 출력
          else if( text == "Wed" ) {
             document.getElementById("mon_table").style.display = "none";
             document.getElementById("tue_table").style.display = "none";
@@ -570,7 +575,8 @@ function search() {
                     div[i].style.display="none";
                 }
             }          
-        }       
+        }
+        // 목요일 내에서 검색, 검색어가 없을 경우 목요일 전체 목록 출력
         else if( text == "Thu" ) {
             document.getElementById("mon_table").style.display = "none";
             document.getElementById("tue_table").style.display = "none";
@@ -591,6 +597,8 @@ function search() {
                 }
             }          
         }
+        
+        // 금요일 내에서 검색, 검색어가 없을 경우 금요일 전체 목록 출력
         else if( text == "Fri" ) {
             document.getElementById("mon_table").style.display = "none";
             document.getElementById("tue_table").style.display = "none";
@@ -611,6 +619,7 @@ function search() {
                 }
             }       
         }
+        // 검색어 초기화
         document.getElementById("myInput").value = "";
     }   
 }
