@@ -4,35 +4,38 @@
     <meta charset="UTF-8">
     <title>TODO in HTML5 Skeleton</title>
     <!-- CSS, JS External 정의 -->
-    <link rel="stylesheet" type="text/css" href="AddToDo_CSS.css">
     <link rel="stylesheet" type="text/css" href="TP1_SKELETON_CSS.css">
     <script src="TP1_SKELETON_JS.js"></script>
 </head>
+<body>
+    <main id="content">
+        <article>
+            <h6>&nbsp;</h6>
+            <header>
+                <button id="myBtn" onclick="openAddModal()">Add ToDo</button>
+                <!-- Header (Add ToDo 버튼, keyword 검색) -->
+                <div id="searchBar">
+                    <select id="selectDay">
+                        <option value="0" selected>day</option>
+                        <option value="1">Mon</option>
+                        <option value="2">Tue</option>
+                        <option value="3">Wed</option>
+                        <option value="4">Thu</option>
+                        <option value="5">Fri</option>
+                    </select>
+                    <input type="text" id="myInput" onkeyup="search()" placeholder="Enter your keyword here">
+                </div>
+            </header>
 
-<body><main id="content">
-    <article><h6>&nbsp;</h6>
-        <header>
-            <button id="myBtn" onclick="openAddModal()">Add ToDo</button>
-            <!-- Header (Add ToDo 버튼, keyword 검색) -->
-            <div id="searchBar">
-                <select id="selectDay">
-                    <option value="0" selected>day</option>
-                    <option value="1">Mon</option>
-                    <option value="2">Tue</option>
-                    <option value="3">Wed</option>
-                    <option value="4">Thu</option>
-                    <option value="5">Fri</option>
-                </select>
-                <input type="text" id="myInput" onkeyup="search()" placeholder="Enter your keyword here">
-            </div>
-        </header>
-        
             <!-- Middle Bar A~D, Display Area A~D -->
-            <section id="middleBar_mon" class="middle"><h6>&nbsp;</h6>
-                <section class="middleTop"><h6>&nbsp;</h6>
+            <section id="middleBar_mon" class="middle">
+                <h6>&nbsp;</h6>
+                <section class="middleTop">
+                    <h6>&nbsp;</h6>
                     <Strong>mon</Strong>
                 </section>
-                <section class="displayArea_mon"><h6>&nbsp;</h6>
+                <section class="displayArea_mon">
+                    <h6>&nbsp;</h6>
                     <Strong>월요일 목록</Strong>
                 </section>
                 <div>
@@ -43,89 +46,98 @@
             <!--경계선-->
             <div class="mainLine">
             </div>
-            <section id="middleBar_tue" class="middle"><h6>&nbsp;</h6>
-                <section class="middleTop"><h6>&nbsp;</h6>
+            <section id="middleBar_tue" class="middle">
+                <h6>&nbsp;</h6>
+                <section class="middleTop">
+                    <h6>&nbsp;</h6>
                     <Strong>tue</Strong>
                 </section>
-                <section class="displayArea_tue"><h6>&nbsp;</h6>
+                <section class="displayArea_tue">
+                    <h6>&nbsp;</h6>
                     <Strong>화요일 목록</Strong>
                 </section>
                 <table id="tue_table"></table>
             </section>
             <div class="mainLine">
             </div>
-            <section id="middleBar_wed" class="middle"><h6>&nbsp;</h6>
-                <section class="middleTop"><h6>&nbsp;</h6>
+            <section id="middleBar_wed" class="middle">
+                <h6>&nbsp;</h6>
+                <section class="middleTop">
+                    <h6>&nbsp;</h6>
                     <Strong>wed</Strong>
                 </section>
-                <section class="displayArea_wed"><h6>&nbsp;</h6>
+                <section class="displayArea_wed">
+                    <h6>&nbsp;</h6>
                     <Strong>수요일 목록</Strong>
                 </section>
                 <table id="wed_table"></table>
             </section>
             <div class="mainLine">
             </div>
-            <section id="middleBar_thu" class="middle"><h6>&nbsp;</h6>
-                <section class="middleTop"><h6>&nbsp;</h6>
+            <section id="middleBar_thu" class="middle">
+                <h6>&nbsp;</h6>
+                <section class="middleTop">
+                    <h6>&nbsp;</h6>
                     <Strong>thu</Strong>
                 </section>
-                <section class="displayArea_thu"><h6>&nbsp;</h6>
+                <section class="displayArea_thu">
+                    <h6>&nbsp;</h6>
                     <Strong>목요일 목록</Strong>
                 </section>
                 <table id="thu_table"></table>
             </section>
             <div class="mainLine">
             </div>
-            <section id="middleBar_Fri" class="middle"><h6>&nbsp;</h6>
-                <section class="middleTop"><h6>&nbsp;</h6>
+            <section id="middleBar_Fri" class="middle">
+                <h6>&nbsp;</h6>
+                <section class="middleTop">
+                    <h6>&nbsp;</h6>
                     <Strong>fri</Strong>
                 </section>
-                <section class="displayArea_Fri"><h6>&nbsp;</h6>
+                <section class="displayArea_Fri">
+                    <h6>&nbsp;</h6>
                     <Strong>금요일 목록</Strong>
                 </section>
                 <table id="fri_table"></table>
             </section>
-        
-    </article></main>
 
+        </article>
+    </main>
+    <!-- Modal -->
     <div id="addModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-body">
-                    <section class="writingTransparentBorder"><h6>&nbsp;</h6></section>
-                    <!-- Add ToDo Button View -->
-                    <section class="writingFormContainer"><h6>&nbsp;</h6>
-                        <img id="close1" src="img/delete.png" onclick="closeAddModal()" alt="closeButton">
-                        <br>
-                        <br>
-                        <div>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <select id="addDay" name="addDay">
-                                <option value="0" selected>day</option>
-								<option value="1">Mon</option>
-								<option value="2">Tue</option>
-								<option value="3">Wed</option>
-								<option value="4">Thu</option>
-								<option value="5">Fri</option>
-							</select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="text" id="title" placeholder="Title" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <textarea rows="5" cols="30" id="contents" name="contents"></textarea>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <button id="addBtn" onclick="addFunction()">Add</button>
-                    </section>
+                    <img id="close1" src="img/delete.png" onclick="closeAddModal()" alt="closeButton">
+                    <br>
+                    <br>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <select id="addDay" name="addDay">
+                                        <option value="0" selected>day</option>
+                                        <option value="1">Mon</option>
+                                        <option value="2">Tue</option>
+                                        <option value="3">Wed</option>
+                                        <option value="4">Thu</option>
+                                        <option value="5">Fri</option>
+							         </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" id="title" placeholder="Title" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea rows="5" cols="30" id="contents" name="contents"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button id="addBtn" onclick="addFunction()">Add</button>
                 </div>
             </div>
         </div>
@@ -134,50 +146,45 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-body">
-                    <section class="writingTransparentBorder"><h6>&nbsp;</h6></section>
-                    <!-- Add ToDo Button View -->
-                    <section class="writingFormContainer"><h6>&nbsp;</h6>
-                        <img id="close2" src="img/delete.png" onclick="closeModifyModal()" alt="closeButton">
-                        <br>
-                        <br>
-                        <div>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <select id="modifyDay">
-								<option value="0" selected>day</option>
-								<option value="1">Mon</option>
-								<option value="2">Tue</option>
-								<option value="3">Wed</option>
-								<option value="4">Thu</option>
-								<option value="5">Fri</option>
-							</select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="text" id="number" name="number" placeholder="" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="text" id="e_title" name="e_title" placeholder="Title" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <textarea rows="5" cols="30" id="e_contents" name="e_contents"></textarea>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div id="modify_button">
-                        </div>
-                    </section>
+                    <img id="close2" src="img/delete.png" onclick="closeModifyModal()" alt="closeButton">
+                    <br>
+                    <br>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <select id="modifyDay">
+                                        <option value="0" selected>day</option>
+                                        <option value="1">Mon</option>
+                                        <option value="2">Tue</option>
+                                        <option value="3">Wed</option>
+                                        <option value="4">Thu</option>
+                                        <option value="5">Fri</option>
+							         </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" id="number" name="number" placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" id="e_title" name="e_title" placeholder="Title" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea rows="5" cols="30" id="e_contents" name="e_contents"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="modify_button">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
-
 </html>

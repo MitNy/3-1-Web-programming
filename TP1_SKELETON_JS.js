@@ -1,3 +1,4 @@
+
 /* 요일 관련 문자열 변수 */
 var Mon = "Mon";
 var Tue = "Tue";
@@ -19,31 +20,37 @@ var fri_index = 0;
 
 /* Add ToDo Modal 열기 */
 function openAddModal() {
+    "use strict";
     document.getElementById("addModal").style.display = "block";
 }
 
 /* Add toDo Modal 닫기 */
 function closeAddModal() {
-        document.getElementById("addModal").style.display = "none";
+    "use strict";
+    document.getElementById("addModal").style.display = "none";
 }
 
 /* Modify Modal 닫기 */
 function closeModifyModal() {
-        document.getElementById("modifyModal").style.display = "none";
+    "use strict";
+    document.getElementById("modifyModal").style.display = "none";
 }
 
 /* Modal 창 밖 영역 클릭시 Modal 닫기 */
 window.onclick = function (event) {
-    if (event.target == document.getElementById("addModal")) {
+    "use strict";
+    if (event.target === document.getElementById("addModal")) {
         document.getElementById("addModal").style.display = "none";
-    } else if (event.target == document.getElementById("modifyModal")) {
+    } else if (event.target === document.getElementById("modifyModal")) {
         document.getElementById("modifyModal").style.display = "none";
     }
-}
+};
 
 /* Add시 입력한 값 초기화 */
 function resetItem() {
+    "use strict";
     var day = document.getElementById("addDay");
+    day.options[0].selected = true;
     document.getElementById("title").value = "";
     document.getElementById("contents").value = "";
 
@@ -51,14 +58,13 @@ function resetItem() {
 
 /* 목록 갱신 */
 function getList(text) {
-    var text = text;
+    "use strict";
     // case : 월요일
-    if( text == "Mon") {
+    if (text === "Mon") {
         var monContainer = document.getElementById("mon_table");
-        if( mon_array.length > 0 ) {
+        if (mon_array.length > 0) {
             var domItems = [];
-
-            for( var i=0; i< mon_array.length; i++ ) {
+            for (var i=0; i< mon_array.length; i+=1) {
                 domItems.push("<tr><div class='doContent' id='"+mon_index+"'><a id='conBtn' href='javascript:deleteElement("+text+","+i+");' style='text-decoration:none; color:black;'><span id='"+mon_index+"' style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify("+text+","+i+");' style='text-decoration:none; color:black;'><p class='monP'>"+mon_array[i].input_title+"</p></a></div></tr>");
             }
 
@@ -142,7 +148,7 @@ function openModify(this_array,index) {
     // 클릭한 element가 mon_array 요소 일 때 
     if( this_array == "Mon") {
         var day = document.getElementById("modifyDay");
-        day.options[0].innerHTML = "Mon";
+        day.options[1].selected=true;
         document.getElementById("number").value = index;
         document.getElementById("e_title").value = mon_array[index].input_title;
         document.getElementById("e_contents").value = mon_array[index].input_content;
@@ -151,7 +157,7 @@ function openModify(this_array,index) {
     // 클릭한 element가 tue_array 요소 일 때
     else if( this_array == "Tue") {
         var day = document.getElementById("modifyDay");
-        day.options[0].innerHTML = "Tue";
+        day.options[2].selected=true;
         document.getElementById("number").value = index;
         document.getElementById("e_title").value = tue_array[index].input_title;
         document.getElementById("e_contents").value = tue_array[index].input_content;
@@ -160,7 +166,7 @@ function openModify(this_array,index) {
     // 클릭한 element가 wed_array 요소 일 때
     else if( this_array == "Wed") {
         var day = document.getElementById("modifyDay");
-        day.options[0].innerHTML = "Wed";
+        day.options[3].selected=true;
         document.getElementById("number").value = index;
         document.getElementById("e_title").value = wed_array[index].input_title;
         document.getElementById("e_contents").value = wed_array[index].input_content;
@@ -169,7 +175,7 @@ function openModify(this_array,index) {
     // 클릭한 element가 thu_array 요소 일 때
     else if( this_array == "Thu") {
         var day = document.getElementById("modifyDay");
-        day.options[0].innerHTML = "Thu";
+        day.options[4].selected=true;
         document.getElementById("number").value = index;
         document.getElementById("e_title").value = thu_array[index].input_title;
         document.getElementById("e_contents").value = thu_array[index].input_content;
@@ -178,7 +184,7 @@ function openModify(this_array,index) {
     // 클릭한 element가 fri_array 요소 일 때
     else if( this_array == "Fri") {
         var day = document.getElementById("modifyDay");
-        day.options[0].innerHTML = "Fri";
+        day.options[5].selected=true;
         //day.options[day.selectedIndex].innerHTML = fri_array[index].input_day;
         document.getElementById("number").value = index;
         document.getElementById("e_title").value = fri_array[index].input_title;
@@ -404,6 +410,7 @@ function ModifyFunction(this_day,this_index) {
             }
         }
     }
+    
 }
 
 
