@@ -28,15 +28,17 @@
 
 	String fileName = week+"_Todo_"+title+".txt";
 	String filePath = request.getRealPath("wp/hw2/file/"+week+"/"+fileName);	
-	out.print(filePath);
 	try {
-		PrintWriter w = new PrintWriter(filePath);
+		BufferedWriter bw = new BufferedWriter(new FileWriter(filePath,true));
+		PrintWriter w = new PrintWriter(bw,true);
+
 		w.println(week);
 		w.println(title);
 		w.println(content);
+		w.flush();
 		w.close();
-		out.println("<script>alert('성공적으로 등록하였습니다.');history.go(-1);</script>");
-
+		out.println("<script>alert('성공적으로 등록하였습니다.');</script>");
+		response.sendRedirect("hw2.jsp");
 	}
 	catch(IOException e) {
 		

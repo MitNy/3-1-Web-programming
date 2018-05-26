@@ -16,12 +16,7 @@
             <h6>&nbsp;</h6>
             <header>
                 <button id="myBtn" onclick="openAddModal()">Add ToDo</button> 
-		<%
-			String filePath = request.getRealPath("wp/hw2/file");
-			String fileName = application.getRealPath(filePath);
-			File file = new File(fileName);
-			out.print(new Date(file.lastModified()));
-		%>
+		<%= new java.util.Date() %>
 		<select id="selectDay">
                         <option value="0" selected>day</option>
                         <option value="1">Mon</option>
@@ -46,7 +41,9 @@
                     <Strong>월요일 목록</Strong>
                 </section>
                 <div>
-                    <table id="mon_table"></table>
+                    <table id="mon_table">
+		<%@ include file="MonList.jsp" %>
+			</table>
                 </div>
             </section>
 
@@ -63,7 +60,9 @@
                     <h6>&nbsp;</h6>
                     <Strong>화요일 목록</Strong>
                 </section>
-                <table id="tue_table"></table>
+                <table id="tue_table">
+			<%@ include file="TueList.jsp" %>
+		</table>
             </section>
             <div class="mainLine">
             </div>
