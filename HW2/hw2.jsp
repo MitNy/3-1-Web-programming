@@ -1,0 +1,198 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.io.*,java.util.*" %>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO in HTML5 Skeleton</title>
+    <!-- CSS, JS External 정의 -->
+    <link rel="stylesheet" type="text/css" href="hw2.css">
+    <script src="hw2.js"></script>
+</head>
+<body>
+    <main id="content">
+        <article>
+            <h6>&nbsp;</h6>
+            <header>
+                <button id="myBtn" onclick="openAddModal()">Add ToDo</button> 
+		<%
+			String filePath = request.getRealPath("wp/hw2/file");
+			String fileName = application.getRealPath(filePath);
+			File file = new File(fileName);
+			out.print(new Date(file.lastModified()));
+		%>
+		<select id="selectDay">
+                        <option value="0" selected>day</option>
+                        <option value="1">Mon</option>
+                        <option value="2">Tue</option>
+                        <option value="3">Wed</option>
+                        <option value="4">Thu</option>
+                        <option value="5">Fri</option>
+                    </select>
+                    <input type="text" id="myInput" onkeyup="search()" placeholder="Enter your keyword here">
+            		<button id="delBtn" onclick="checkedDelete()">Delete</button>
+		</header>
+
+            <!-- Middle Bar A~D, Display Area A~D -->
+            <section id="middleBar_mon" class="middle">
+                <h6>&nbsp;</h6>
+                <section class="middleTop">
+                    <h6>&nbsp;</h6>
+                    <Strong>mon</Strong>
+                </section>
+                <section class="displayArea_mon">
+                    <h6>&nbsp;</h6>
+                    <Strong>월요일 목록</Strong>
+                </section>
+                <div>
+                    <table id="mon_table"></table>
+                </div>
+            </section>
+
+            <!--경계선-->
+            <div class="mainLine">
+            </div>
+            <section id="middleBar_tue" class="middle">
+                <h6>&nbsp;</h6>
+                <section class="middleTop">
+                    <h6>&nbsp;</h6>
+                    <Strong>tue</Strong>
+                </section>
+                <section class="displayArea_tue">
+                    <h6>&nbsp;</h6>
+                    <Strong>화요일 목록</Strong>
+                </section>
+                <table id="tue_table"></table>
+            </section>
+            <div class="mainLine">
+            </div>
+            <section id="middleBar_wed" class="middle">
+                <h6>&nbsp;</h6>
+                <section class="middleTop">
+                    <h6>&nbsp;</h6>
+                    <Strong>wed</Strong>
+                </section>
+                <section class="displayArea_wed">
+                    <h6>&nbsp;</h6>
+                    <Strong>수요일 목록</Strong>
+                </section>
+                <table id="wed_table"></table>
+            </section>
+            <div class="mainLine">
+            </div>
+            <section id="middleBar_thu" class="middle">
+                <h6>&nbsp;</h6>
+                <section class="middleTop">
+                    <h6>&nbsp;</h6>
+                    <Strong>thu</Strong>
+                </section>
+                <section class="displayArea_thu">
+                    <h6>&nbsp;</h6>
+                    <Strong>목요일 목록</Strong>
+                </section>
+                <table id="thu_table"></table>
+            </section>
+            <div class="mainLine">
+            </div>
+            <section id="middleBar_Fri" class="middle">
+                <h6>&nbsp;</h6>
+                <section class="middleTop">
+                    <h6>&nbsp;</h6>
+                    <Strong>fri</Strong>
+                </section>
+                <section class="displayArea_Fri">
+                    <h6>&nbsp;</h6>
+                    <Strong>금요일 목록</Strong>
+                </section>
+                <table id="fri_table"></table>
+            </section>
+
+        </article>
+    </main>
+    <!-- Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-body">
+                    <img id="close1" src="img/delete.png" onclick="closeAddModal()" alt="closeButton">
+                    <br>
+                    <br>
+		    <form action="./addTodo.jsp" method="post">
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <select id="addDay" name="addDay">
+                                        <option value="0" selected>day</option>
+                                        <option value="1">Mon</option>
+                                        <option value="2">Tue</option>
+                                        <option value="3">Wed</option>
+                                        <option value="4">Thu</option>
+                                        <option value="5">Fri</option>
+							         </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" id="title" name="title"  placeholder="Title" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea rows="5" cols="30" id="contents" name="contents"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+			<input type="submit" value="Add">
+		    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modifyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-body">
+                    <img id="close2" src="img/delete.png" onclick="closeModifyModal()" alt="closeButton">
+                    <br>
+                    <br>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <select id="modifyDay">
+                                        <option value="0" selected>day</option>
+                                        <option value="1">Mon</option>
+                                        <option value="2">Tue</option>
+                                        <option value="3">Wed</option>
+                                        <option value="4">Thu</option>
+                                        <option value="5">Fri</option>
+							         </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" id="number" name="number" placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" id="e_title" name="e_title" placeholder="Title" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea rows="5" cols="30" id="e_contents" name="e_contents"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="modify_button">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
