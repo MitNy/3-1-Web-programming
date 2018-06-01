@@ -1,0 +1,224 @@
+html {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+
+}
+
+body {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    padding: 20px 30px 20px 30px;
+}
+
+article {
+    background-color: #ffffff;
+    height: 100%;
+    border-style: none;
+}
+
+article > h6 {
+    display: none;
+}
+
+section > h6 {
+    display: none;
+}
+
+header {
+    background-color: #ffc000;
+    line-height: 60px;
+    width: 800px;
+    border: 1px solid;
+    border-radius: 10px;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+header > button {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border: solid 1px;
+    padding: 10px;
+    margin: 10px;
+}
+
+main {
+    background-color: #ffffff;
+    height: 100%;
+    width: 800px;
+    margin: auto;
+    padding: 10px;
+}
+
+img {
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin: 5px 5px;
+}
+
+.middle {
+    float: left;
+    height: 98%;
+    width: 18%;
+    margin: 7px;
+}
+
+.middleTop {
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+
+.displayArea_mon {
+    background-color: #cfe0e0;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.displayArea_tue {
+    background-color: #e9b7b7;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.displayArea_wed {
+    background-color: #cce0e0;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.displayArea_thu {
+    background-color: #e2ddc0;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.displayArea_Fri {
+    background-color: skyblue;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.mainLine {
+    float: left;
+    height: 100%;
+    border-right: 1px solid;
+}
+
+input {
+    width: 200px;
+}
+
+.modal select {
+    width: 200px;
+}
+
+.modal textarea {
+    width: 200px;
+}
+
+.doContent {
+    text-align: center;
+    margin: 10px;
+    border: 1px solid #888;
+    border-radius: 3px;
+    background-color: whitesmoke;
+    width: 120px;
+    height: auto;
+
+}
+
+.modal {
+    text-align: center;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 200px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal button {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border: solid 1px;
+    padding: 10px 20px;
+    float: right;
+}
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #ffffff;
+    display: inline-block;
+    position: relative;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px;
+    height: auto;
+    width: auto;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@media screen and (min-width: 500px) {
+    .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: auto;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.modal-body {
+    padding: 5px 16px;
+}
+
+ul {
+    background: #cce5ff;
+}
+
+#searchBar {
+    display: inline;
+    padding-left: 400px;
+}
+
+#selectDay {
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+#myInput {
+    height: 30px;
+    border-radius: 5px;
+}
