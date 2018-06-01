@@ -28,14 +28,12 @@
 		}
 	}
 
-	String fileName = week+"_"+title+"_"+content+".txt";
+	String fileName = title+".txt";
 	String filePath = request.getRealPath("wp/hw/file/"+week+"/"+fileName);	
 	try {
 		BufferedWriter bw = new BufferedWriter(new FileWriter(filePath,true));
 		PrintWriter w = new PrintWriter(bw,true);
 
-		w.println(week);
-		w.println(title);
 		w.println(content);
 		w.flush();
 		w.close();
