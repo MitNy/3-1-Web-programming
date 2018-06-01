@@ -9,12 +9,7 @@
 
         for( int i=0; i< files.length; i++ ) {
                 weekDir[i] = files[i].getName();
-		out.print("<tr>");
-		out.print("<div class='doContent'>");
-		out.print("<a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'>");
-		out.print("<span><input type='checkbox'/></span><span style='float:right;'>&times;</span>");
-		out.print("</a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'>");
-		out.print("<p class='wedP'>"+weekDir[i]+"</p></a></div></tr>");
+		out.print("<tr><div class='doContent'><input type='checkbox' id='chk' style='float:left;'><a id='conBtn' href='javascript:deleteElement();' style='text-decoration:none; color:black;'><span style='float:right;'>&times;</span></a><a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'><p class='wedP'>"+weekDir[i]+"</p></a></div></tr>");
 	}
 
 %>

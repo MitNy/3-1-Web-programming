@@ -10,10 +10,9 @@
 		$.ajax({
 			type:"GET",
 			url:"./MonList.jsp",
-			dataType:"html",
+			dataType:"text",
 			success: function(data){
-				console.log(data);
-				$("#mon_table").html("aa");
+				document.getElementById("mon_table").innerHTML = data;	
 			},
 			error: function(){
 				alert("Fail!!");
