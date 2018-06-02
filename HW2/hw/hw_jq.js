@@ -103,18 +103,17 @@ $(document).ready(function() {
 
 	$("#delBtn").click(function(){
 		var selectedArray = new Array();
-		var selectedNum = 0;
 		$("input:checkbox[id='chk']").each(function() {
 			if(this.checked) {
 				selectedArray.push(this.value);
-				selectedNum = $("input:checkbox[id='chk']").length;
 			}
 		});
 
 		$.ajax({
 			type:"POST",
 			url:"./delete.jsp",
-			data : {"selected":selectedArray },
+			data : {selectedArray : selectedArray },
+			traditional: true,
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 			success: function(){
 				location.reload();
@@ -122,10 +121,9 @@ $(document).ready(function() {
 			},
 			error: function(){
 				location.reload();
-				alert("delete failt");
+				alert("delete fail");
 			}
 		});
-
 	});
 
 	
