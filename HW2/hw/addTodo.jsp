@@ -3,7 +3,6 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html;charset=UTF-8");  %>
 <%
-        request.setCharacterEncoding("UTF-8");
         String week = request.getParameter("day");
         String title = request.getParameter("title");
         String content = request.getParameter("content");

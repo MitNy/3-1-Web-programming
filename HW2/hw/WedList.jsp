@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import="java.io.*,java.util.*" %>
 <%
-        String fileDir = request.getRealPath("wp/hw/file/Mon/");
+        String fileDir = request.getRealPath("wp/hw/file/Wed/");
 
         File f = new File(fileDir);
         File [] files = f.listFiles();
@@ -12,9 +12,10 @@
                 weekDir[i] = files[i].getName();
 		splitData = weekDir[i].substring(0,weekDir[i].length()-4);
 
-		out.print("<tr><div class='doContent'><input type='checkbox' id='chk' style='float:left;' value='Mon_"+splitData+"'>");
+
+		out.print("<tr><div class='doContent'><input type='checkbox' id='chk' style='float:left;' value='Wed_"+splitData+"'>");
 		out.print("<a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'>");
-		out.print("<p class='monP'>"+splitData+"</p></a></div></tr>");
+		out.print("<p class='wedP'>"+splitData+"</p></a></div></tr>");
 	}
 %>
 

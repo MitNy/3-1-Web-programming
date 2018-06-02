@@ -22,21 +22,60 @@
 
 	function TueLoad() {
 		$.ajax({
-
-		});
+                        type:"GET",
+                        url:"./TueList.jsp",
+                        dataType:"text",
+                        success: function(data){
+                                document.getElementById("tue_table").innerHTML = data;
+                        },
+                        error: function(){
+                                alert("Fail!!");
+                        }
+                });
 	}
 
 	function WedLoad() {
-
+		$.ajax({
+                        type:"GET",
+                        url:"./WedList.jsp",
+                        dataType:"text",
+                        success: function(data){
+                                document.getElementById("wed_table").innerHTML = data;
+                        },
+                        error: function(){
+                                alert("Fail!!");
+                        }
+                });
 	}
 
 	function ThuLoad() {
-
+		$.ajax({
+                        type:"GET",
+                        url:"./ThuList.jsp",
+                        dataType:"text",
+                        success: function(data){
+                                document.getElementById("thu_table").innerHTML = data;
+                        },
+                        error: function(){
+                                alert("Fail!!");
+                        }
+                });
 	}
 
 	function FriLoad() {
-
+		$.ajax({
+                        type:"GET",
+                        url:"./FriList.jsp",
+                        dataType:"text",
+                        success: function(data){
+                                document.getElementById("fri_table").innerHTML = data;
+                        },
+                        error: function(){
+                                alert("Fail!!");
+                        }
+                });
 	}
+
 
 
 
@@ -52,13 +91,44 @@ $(document).ready(function() {
 			},
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 			success : function(){
+				location.reload();
 				alert("success!");
 			},
 			error: function() {
+				location.reload();
 				alert("Fail!");
 			}
 		});
 	});
+
+	$("#delBtn").click(function(){
+		var selectedArray = new Array();
+		var selectedNum = 0;
+		$("input:checkbox[id='chk']").each(function() {
+			if(this.checked) {
+				selectedArray.push(this.value);
+				selectedNum = $("input:checkbox[id='chk']").length;
+			}
+		});
+
+		$.ajax({
+			type:"POST",
+			url:"./delete.jsp",
+			data : {"selected":selectedArray },
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			success: function(){
+				location.reload();
+				alert("delete success");
+			},
+			error: function(){
+				location.reload();
+				alert("delete failt");
+			}
+		});
+
+	});
+
+	
 });
 
 

@@ -16,8 +16,7 @@
             <h6>&nbsp;</h6>
             <header>
                 <button id="myBtn" onclick="openAddModal()">Add ToDo</button>
-                <!-- Header (Add ToDo 버튼, keyword 검색) -->
-                <div id="searchBar">
+		    <!-- Header (Add ToDo 버튼, keyword 검색) -->
                     <select id="selectDay">
                         <option value="0" selected>day</option>
                         <option value="1">Mon</option>
@@ -27,8 +26,8 @@
                         <option value="5">Fri</option>
                     </select>
                     <input type="text" id="myInput" onkeyup="search()" placeholder="Enter your keyword here">
-                </div>
-            </header>
+        		<button id="delBtn">Delete</button>    
+	</header>
 
             <!-- Middle Bar A~D, Display Area A~D -->
             <section id="middleBar_mon" class="middle">
