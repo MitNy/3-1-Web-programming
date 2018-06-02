@@ -13,7 +13,7 @@
 		splitData = weekDir[i].substring(0,weekDir[i].length()-4);
 
 		out.print("<tr><div class='doContent'><input type='checkbox' id='chk' style='float:left;' value='Mon_"+splitData+"'>");
-		out.print("<a id='conBtn' href='javascript:openModify();' style='text-decoration:none; color:black;'>");
+		out.print("<a id='conBtn' href=javascript:openModify('"+splitData+"','Mon'); style='text-decoration:none; color:black;'>");
 		out.print("<p class='monP'>"+splitData+"</p></a></div></tr>");
 	}
 %>

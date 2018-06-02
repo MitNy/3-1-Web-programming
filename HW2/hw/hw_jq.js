@@ -76,8 +76,26 @@
                 });
 	}
 
-
-
+	function openModify(title,day) {
+		$.ajax({
+			type:"POST",
+			url:"./modify.jsp",
+			data:{
+				"day" : day,
+				"title" : title
+			},
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			success : function(response) {
+				document.getElementById("e_title").innerHTML = title;
+				document.getElementById("e_contents").innerHTML = response;
+				document.getElementById("modifyModal").style.display = "block";
+				alert("success");
+			},
+			error: function() {
+				alert("fail");
+			}
+		});
+	}
 
 $(document).ready(function() {
 	$("#addBtn").click(function(){
