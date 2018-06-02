@@ -64,6 +64,10 @@ img {
     margin: 5px 5px;
 }
 
+textarea {
+	text-align:top;
+}
+
 .middle {
     float: left;
     height: 98%;

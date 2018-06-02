@@ -30,12 +30,10 @@
 	String fileName = title+".txt";
 	String filePath = request.getRealPath("wp/hw/file/"+week+"/"+fileName);	
 	try {
-		BufferedWriter bw = new BufferedWriter(new FileWriter(filePath,true));
-		PrintWriter w = new PrintWriter(bw,true);
+		BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
+		bw.write(content);
+		bw.close();
 
-		w.println(content);
-		w.flush();
-		w.close();
 		response.sendRedirect("hw.html");
 	}
 	catch(IOException e) {

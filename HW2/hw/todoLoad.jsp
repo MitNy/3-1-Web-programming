@@ -5,18 +5,18 @@
 <%
 	String day = request.getParameter("day");
 	String title = request.getParameter("title");
-	String content = request.getParameter("content");
 	String filePath = request.getRealPath("wp/hw/file/"+day+"/"+title+".txt");
-
-	out.print(filePath);
+	String fileContent = null;
 	try {
-		BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
-		bw.write(content);
-		bw.flush();
-		bw.close();
-		response.sendRedirect("hw.html");
+		FileReader fr = new FileReader(filePath);
+		BufferedReader br = new BufferedReader(fr);
+
+		while((fileContent = br.readLine()) != null) {
+			out.print(fileContent);
+		}
 	}
 	catch(IOException e) {
-
+	
 	}
-%>	
+
+%>

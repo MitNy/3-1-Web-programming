@@ -14,7 +14,7 @@
 
 
 		out.print("<tr><div class='doContent'><input type='checkbox' id='chk' style='float:left;' value='Wed_"+splitData+"'>");
-		out.print("<a id='conBtn' href='javascript:openModify('"+splitData+"','Wed');' style='text-decoration:none; color:black;'>");
+		out.print("<a id='conBtn' href=javascript:openModify('"+splitData+"','Wed'); style='text-decoration:none; color:black;'>");
 		out.print("<p class='wedP'>"+splitData+"</p></a></div></tr>");
 	}
 %>

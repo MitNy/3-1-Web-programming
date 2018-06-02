@@ -79,17 +79,17 @@
 	function openModify(title,day) {
 		$.ajax({
 			type:"POST",
-			url:"./modify.jsp",
+			url:"./todoLoad.jsp",
 			data:{
 				"day" : day,
 				"title" : title
 			},
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 			success : function(response) {
-				document.getElementById("e_title").innerHTML = title;
-				document.getElementById("e_contents").innerHTML = response;
+				document.getElementById("e_day").value = day;
+				document.getElementById("e_title").value = title;
+				document.getElementById("e_contents").value = response.trim();
 				document.getElementById("modifyModal").style.display = "block";
-				alert("success");
 			},
 			error: function() {
 				alert("fail");
@@ -144,7 +144,33 @@ $(document).ready(function() {
 		});
 	});
 
-	
+	$("#modiBtn").click(function(){
+		$.ajax({	
+			type:"POST",
+			url:"./modify.jsp",
+			data : {
+				/*
+				day:$("#e_day").val(),
+				title:$("#e_title").val(),
+				content:$("#e_content").val()
+
+				*/
+				day: document.getElementById("e_day").value,
+				title: document.getElementById("e_title").value,
+				content: document.getElementById("e_contents").value
+			},
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			success: function() {
+				location.reload();
+				alert("success");
+			},
+			error: function(){
+				alert("fail");
+			}
+		});	
+	});
+
+
 });
 
 

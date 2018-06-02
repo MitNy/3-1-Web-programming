@@ -40,10 +40,8 @@
                     <h6>&nbsp;</h6>
                     <Strong>월요일 목록</Strong>
                 </section>
-                <div>
                     <table id="mon_table">
 		</table>
-                </div>
             </section>
 
             <!--경계선-->
@@ -154,14 +152,19 @@
                     <br>
                     <div>
                         <table id="modTb">
+				<tr>
+					<td>
+						<input type="hidden" id="e_day" name="e_day"/>
+					</td>
+				</tr>
                             <tr>
                                 <td>
-                                    <input type="text" id="e_title" name="e_title" placeholder="Title" />
+                                    <input type="text" id="e_title" name="e_title" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <textarea rows="5" cols="30" id="e_contents" name="e_contents"></textarea>
+                                    <textarea rows="5" cols="20" id="e_contents" name="e_contents"></textarea>
                                 </td>
                             </tr>
                         </table>
