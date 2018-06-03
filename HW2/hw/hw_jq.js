@@ -1,5 +1,6 @@
 /* addBtn / modiBtn */
 	function AllLoad() {
+		lastTime();
 		MonLoad();
 		TueLoad();
 		WedLoad();
@@ -74,6 +75,20 @@
                                 alert("Fail!!");
                         }
                 });
+	}
+
+	function lastTime(){
+		$.ajax({
+			type:"GET",
+			url:"./lastTime.jsp",
+			dataType:"text",
+			success:function(data){
+				document.getElementById("time").value = data.trim();
+			},
+			error: function(){
+				alert("fail");
+			}
+		});
 	}
 
 	function openModify(title,day) {
