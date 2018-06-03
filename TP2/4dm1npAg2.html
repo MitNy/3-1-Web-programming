@@ -1,0 +1,66 @@
+<!-- include php -->
+
+<!DOCTYPE HTML>
+    <html>
+    	<head>
+        	<link rel="shortcut icon" type="image/x-icon" href="./img/argos10.png" />
+        	<title>ARGOS SEMINAR</title>
+        	<meta charset="utf-8" />
+        	<meta name="viewport" content="width=device-width, initial-scale=1" />
+       		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="./main.css">
+		<script src="./tp2.js"></script>    
+        	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+        	<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    	</head>
+        <body>
+            <div class="container">
+                <nav class="navbar">
+                    <div class="navbar-header">
+			<!-- 새로고침 버튼 -->
+                        <h3>
+                            <a class="mainTitle" href="JavaScript:window.location.reload()">ARGOS Seminar</a>
+                        </h3>
+                    </div>
+		    <!-- 관리자 로그인 페이지로 이동 및 로그아웃 버튼 -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="pointer" onclick="location.href='./seminar'">
+                            <span class="glyphicon glyphicon glyphicon-home"></span>MAIN
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pointer" onclick="location.href='./logout'" >
+                                <span class="glyphicon glyphicon-log-out"></span> LOGOUT</a>
+                        </li>
+                    </ul>
+                </nav>
+		<!-- 기능 선택 navigation tab -->
+                <ul class="nav nav-tabs">
+                    <li class="active" id="seminarTab">
+                        <a id="goAddSeminar">세미나 추가</a>
+                    </li>
+                    <li id="photoTab">
+                        <a id="goAddPhoto">사진 추가</a>
+                    </li>
+                </ul>
+		<!-- 세미나 추가 -->
+                <div class="container">
+                    <div id="addSeminar">
+			<!-- include php -->
+                    </div>
+                </div>
+            	<!-- 사진 추가 -->
+                <div class="container">
+                    <div id="addPhoto" style="display:none"></div>
+			<!-- include php -->
+                </div>
+            </div>
+    </body>
+</html>

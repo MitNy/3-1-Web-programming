@@ -1,0 +1,71 @@
+<!-- include php -->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="shortcut icon" type="image/x-icon" href="./img/argos10.png" />
+        <title>ARGOS SEMINAR</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./login.css">
+        <script src="./tp2.js"></script>
+    </head>
+    <body>
+        <div class="container">
+	    <!-- 로그인 화면에 보이는 폼을 둘러싸고 있는 박스 -->
+            <div id="login-box">
+                <div class="logo">
+                    <img
+                        src="./img/argos10.png"
+                        class="img img-responsive img-img-thumbnail center-block"/>
+                    <h1 class="logo-caption">ARGOS</h1>
+                </div>
+		<!-- 로그인 정보를 서버로 보내는 form -->
+                <form action="" method="post">
+                    <div class="controls">
+			<!-- ID 입력 -->
+                        <input
+                            type="text"
+                            name="adminID"
+                            id="adminID"
+                            placeholder="ID"
+                            class="form-control"/>
+			<!-- PW 입력 -->
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="PW"
+                            class="form-control"/>
+			<!-- ID와 PW를 서버로 전송 -->
+                        <input
+                            type="submit"
+                            name="submit"
+                            value="Login"
+                            class="form-control"
+                            style="color:white;"/>
+                    </div>
+                </form>
+                <br>
+
+                <li>
+                    아르고스 임원진만 로그인 가능합니다.</li>
+                <li>
+                    비정상적 접근시 차단될 수 있습니다.</li>
+                <br>
+                <span class="glyphicon glyphicon-home" style="color:white;"></span>
+                <!-- 메인으로 이동 -->
+		<a id="goMain" onclick="location.href='./seminar'">
+                    메인으로</a>
+            </div>
+        </div>
+    </body>
+
+</html>

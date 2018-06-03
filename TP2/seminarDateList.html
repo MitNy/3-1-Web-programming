@@ -1,0 +1,103 @@
+<!-- include php -->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="shortcut icon" type="image/x-icon" href="./img/argos10.png" />
+        <title>ARGOS SEMINAR</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/><link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link
+            rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+        <script
+                src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./main.css">
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar">
+		<!-- 페이지 새로고침 -->
+                <div class="navbar-header">
+                    <h3>
+                        <a class="mainTitle" href="JavaScript:window.location.reload()">ARGOS Seminar</a>
+                    </h3>
+                </div>
+		<!-- 관리자 로그인 페이지로 이동 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="pointer" onclick="location.href='./4dm1nL0g1n'">
+                            <span class="glyphicon glyphicon-user"></span> ADMIN
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+	    <!-- 페이지 이동을 위한 navigation tab -->
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="">List</a>
+                </li>
+                <li>
+                    <a class="pointer" onclick="location.href='./member'">Member</a>
+                </li>
+                <li>
+                    <a class="pointer" onclick="location.href='./photo'">Photo</a>
+                </li>
+                <li>
+                    <a class="pointer" onclick="location.href='./random_member'">Random</a>
+                </li>
+            </ul>
+            <div class="container">
+                <h2>세미나 목록</h2>
+		<!-- 세미나 전체 목록을 볼 수 있도록 페이지 이동 -->
+                <a id="totalList" onclick="location.href='./seminar'">전체 리스트 보기</a><br><br> 
+                <form action="" method="post">
+                    <div class="col-md-6">
+                        <!-- 날짜 선택 -->
+			<input type="date" name='date' class="form-control"/> <br>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="submit" class="btn" value="선택"/>
+                        <div class="btn-group">
+			    <!-- 지금까지 해 온 세미나 날짜들만 출력 -->
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">세미나 날짜 <span class="caret"></span></button>
+                            <ul class="dropdown-menu scrollable-menu" role="menu">
+                                <li>2018-06-03</li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div><br>
+            <p><span class="glyphicon glyphicon-bell"></span> 세미나 파일이 존재하면 <a ><i class="glyphicon glyphicon-download-alt"></i></a> , 존재하지 않으면 <i class="glyphicon glyphicon-download-alt"></i> 아이콘이 표시됩니다.
+            </p>
+            <br>
+	    <!-- 선택한 날짜 출력, default는 공백 -->
+            <h4>2018-06-03</h4>
+		<!-- 해당 날짜에 한 세미나만 출력하는 테이블 -->
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>학번</th>
+                            <th>이름</th>
+                            <th>세미나 내용</th>
+                            <th>날짜</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="seminarList">
+                        <tr>
+                        <td>1</td>
+                        <td>16</td>
+                        <td>이미진</td>
+                        <td>TP2</td>
+                        <td>2018-06-03</td>
+                        <td><i class="glyphicon glyphicon-download-alt"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</body>
+</html>

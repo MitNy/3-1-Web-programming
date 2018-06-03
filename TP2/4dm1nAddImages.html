@@ -1,0 +1,64 @@
+<!-- include php -->
+<!DOCTYPE HTML>
+    <html>
+	<head>
+            <title>ARGOS SEMINAR</title>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+            <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+            <script src="./tp2.js"></script>
+	</head>
+        <body>
+	<!-- 파일 업로드를 위한 form -->
+            <form enctype="multipart/form-data" action="./fileupload.php" method="post">
+                <h3>사진 추가</h3><br>
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+			<!-- 달력에서 선택 또는 입력으로 세미나 날짜 선택 -->
+                        <input type="date" name='date' placeholder='세미나 날짜' class="form-control"/><br>
+                        <p><span class="glyphicon glyphicon-bell"></span> 사진에 발표자가 존재하지 않으면 -- 를 입력해주세요.</p>
+                        <table class="table table-bordered table-hover" id="tabi_logic">
+                            <thead>
+                                <tr>
+                                    <th class="text-center"> * </th>
+                                    <th class="text-center"> 발표자 </th>
+                                    <th class="text-center"> 사진 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id='addri0'>
+                                    <td style="width:10px;">1</td>
+                                    <td style="width:30%;">
+					<!-- 발표자 이름 입력 -->
+                                        <input type="text" name='nameimage[]' placeholder='발표자 이름' class="form-control" value="--" />
+                                    </td>
+                                    <td>
+					<!-- 이미지 파일 선택 -->
+                                        <input type="file" class="form-control" name="images[]" accept="images/png,.gif,.jpg,.jpeg "/>
+                                    </td>
+                                </tr>
+                                <tr id='addri1'></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+		<!-- 세미나 날짜, 발표자 이름, 파일을 서버로 전송 -->
+                <input type="submit" class="pull-right btn btn-default" value="Upload">
+            </form>
+	    <!-- row 추가 및 삭제를 위한 버튼 -->
+            <button id="addi_row" class="pull-left btn btn-default">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button id='deletei_row' class="pull-left btn btn-default">
+                <span class="glyphicon glyphicon-minus"></span>
+            </button><br><br>
+        </body>
+</html>

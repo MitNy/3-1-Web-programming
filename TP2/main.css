@@ -1,0 +1,89 @@
+/* 마우스 커서를 손가락 모양으로 뜨게 함 */
+.pointer {
+    cursor:pointer;
+}
+
+/* 상단 페이지 새로고침 a 태그의 style 변화를 없앰  */
+.mainTitle {
+    color:black !important;
+    text-decoration:none !important; 
+}
+
+/* 년도 tab style */
+.nav-pills li {
+	margin-right: 5px;
+}
+
+/* member 리스트 출력 */
+#memberList li {
+	list-style-type : none;
+}
+
+/* 전체 목록으로 이동하는 a 태그 밑줄 X */
+#totalList {
+    text-decoration:none;
+    cursor: pointer;
+}
+
+/* pagination의 위치 지정 */
+.pagination {
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+}
+
+/* random_member 에서 뽑힌 이름 디자인 */
+.d3 {
+  margin: 0.5em 0;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 5.5em;
+  color: #000000 ;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-shadow: -0.02em 0 0 #9999FF;
+} 
+
+/* member 리스트 출력 버튼  */
+#drawing {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    border-radius: 2px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 300;
+    height: 2.85rem;
+    line-height: 2.95rem;
+    padding: 0 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 480px) {
+    #drawing {
+        padding: 0;
+        width: 100%;
+    }
+}
+
+#drawing {
+    background-color: #fff;
+    color: #000 !important;
+}
+
+#drawing:hover {
+	background-color: #f2f2f2;
+}
+
+#drawing:active {
+    background-color: #000;
+}
+
+/* seminarDateList 에서 세미나 날짜 출력하는 dropdown-list */
+.scrollable-menu {
+		height: auto;
+		max-height: 200px;
+		overflow-x: hidden;
+}
