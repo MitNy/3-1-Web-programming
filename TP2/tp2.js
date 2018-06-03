@@ -1,7 +1,7 @@
 /* iframe 크기 조절 */
 $(document).ready(function(){
         var iframe_height=parseInt($('html').height());
-	window.parent.postMessage(iframe_height,'http://edu.argos.or.kr');
+	   window.parent.postMessage(iframe_height,'http://edu.argos.or.kr');
 });
 
 /* row 추가 및 삭제 1 */

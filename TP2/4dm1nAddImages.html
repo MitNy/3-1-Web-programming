@@ -1,6 +1,6 @@
 <!-- include php -->
 <!DOCTYPE HTML>
-    <html>
+    <html lang="ko">
 	<head>
             <title>ARGOS SEMINAR</title>
             <meta charset="utf-8" />
@@ -23,7 +23,7 @@
                 <div class="row clearfix">
                     <div class="col-md-12 column">
 			<!-- 달력에서 선택 또는 입력으로 세미나 날짜 선택 -->
-                        <input type="date" name='date' placeholder='세미나 날짜' class="form-control"/><br>
+                        <input type="date" name='date' class="form-control"/><br>
                         <p><span class="glyphicon glyphicon-bell"></span> 사진에 발표자가 존재하지 않으면 -- 를 입력해주세요.</p>
                         <table class="table table-bordered table-hover" id="tabi_logic">
                             <thead>
@@ -45,7 +45,17 @@
                                         <input type="file" class="form-control" name="images[]" accept="images/png,.gif,.jpg,.jpeg "/>
                                     </td>
                                 </tr>
-                                <tr id='addri1'></tr>
+                                <tr id='addri1'>
+                                    <td style="width:10px;">2</td>
+                                    <td style="width:30%;">
+					<!-- 발표자 이름 입력 -->
+                                        <input type="text" name='nameimage[]' placeholder='발표자 이름' class="form-control" value="--" />
+                                    </td>
+                                    <td>
+					<!-- 이미지 파일 선택 -->
+                                        <input type="file" class="form-control" name="images[]" accept="images/png,.gif,.jpg,.jpeg "/>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

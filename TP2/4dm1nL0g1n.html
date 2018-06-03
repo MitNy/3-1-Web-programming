@@ -1,6 +1,6 @@
 <!-- include php -->
 <!DOCTYPE HTML>
-<html>
+<html lang="ko">
     <head>
         <link rel="shortcut icon" type="image/x-icon" href="./img/argos10.png" />
         <title>ARGOS SEMINAR</title>
@@ -24,11 +24,12 @@
                 <div class="logo">
                     <img
                         src="./img/argos10.png"
-                        class="img img-responsive img-img-thumbnail center-block"/>
+                        class="img img-responsive img-img-thumbnail center-block"
+                        alt="argos logo"/>
                     <h1 class="logo-caption">ARGOS</h1>
                 </div>
 		<!-- 로그인 정보를 서버로 보내는 form -->
-                <form action="" method="post">
+                <form action="login.php" method="post">
                     <div class="controls">
 			<!-- ID 입력 -->
                         <input
@@ -54,15 +55,12 @@
                     </div>
                 </form>
                 <br>
-
-                <li>
-                    아르고스 임원진만 로그인 가능합니다.</li>
-                <li>
-                    비정상적 접근시 차단될 수 있습니다.</li>
+                <p>아르고스 임원진만 로그인 가능합니다.</p>
+                <p> 비정상적 접근시 차단될 수 있습니다.</p>
                 <br>
                 <span class="glyphicon glyphicon-home" style="color:white;"></span>
                 <!-- 메인으로 이동 -->
-		<a id="goMain" onclick="location.href='./seminar'">
+		<a id="goMain" onclick="location.href='./seminar.html'">
                     메인으로</a>
             </div>
         </div>
