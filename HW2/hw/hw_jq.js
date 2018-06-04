@@ -14,6 +14,7 @@
 			dataType:"text",
 			success: function(data){
 				document.getElementById("mon_table").innerHTML = data;	
+
 			},
 			error: function(){
 				alert("Fail!!");
@@ -184,7 +185,6 @@ $(document).ready(function() {
 
 
 });
-
 
 
 

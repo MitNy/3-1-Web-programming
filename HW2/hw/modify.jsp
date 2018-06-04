@@ -11,18 +11,23 @@
 	String this_title = request.getParameter("this_title");
 	String newPath = request.getRealPath("wp/hw/file/"+day+"/"+this_title+".txt");	
 	out.print(this_title);
+	File f = new File(newPath);
+	File r = new File(filePath);
+
 	try {
-		File f = new File(newPath);
-		File r = new File(filePath);
 		f.renameTo(r);
 		BufferedWriter bw = new BufferedWriter(new FileWriter(newPath));
 		bw.write(content);
 		bw.flush();
 		bw.close();
-		f.delete();
 		response.sendRedirect("hw.html");
 	}
 	catch(IOException e) {
 
+	}
+	finally{
+		if(!(this_title.equals(title))){
+			f.delete();
+		}
 	}
 %>	

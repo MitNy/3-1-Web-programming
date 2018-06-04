@@ -11,7 +11,6 @@
 	<script src="hw_jq.js"></script> 
 	<script src="hw.js"></script>
 
-
 </head>
 <body id="mainbd" onload="AllLoad()">
     <main id="content">
@@ -44,8 +43,8 @@
                     <h6>&nbsp;</h6>
                     <Strong>월요일 목록</Strong>
                 </section>
-                    <table id="mon_table" ondrop="drop(event)" ondragover="allowDrop(event)">
-		</table>
+                    <div id="mon_table">
+			</div>
             </section>
 
             <!--경계선-->
@@ -61,7 +60,7 @@
                     <h6>&nbsp;</h6>
                     <Strong>화요일 목록</Strong>
                 </section>
-                <table id="tue_table" ondrop="drop(event)" ondragover="allowDrop(event)"></table>
+                <div id="tue_table" droppable="true"></div>
             </section>
             <div class="mainLine">
             </div>
@@ -75,7 +74,7 @@
                     <h6>&nbsp;</h6>
                     <Strong>수요일 목록</Strong>
                 </section>
-                <table id="wed_table" ondrop="drop(event)" ondragover="allowDrop(event)"></table>
+                <div id="wed_table"></div>
             </section>
             <div class="mainLine">
             </div>
@@ -89,7 +88,7 @@
                     <h6>&nbsp;</h6>
                     <Strong>목요일 목록</Strong>
                 </section>
-                <table id="thu_table" ondrop="drop(event)" ondragover="allowDrop(event)"></table>
+                <div id="thu_table"></div>
             </section>
             <div class="mainLine">
             </div>
@@ -103,7 +102,7 @@
                     <h6>&nbsp;</h6>
                     <Strong>금요일 목록</Strong>
                 </section>
-                <table id="fri_table" ondrop="drop(event)" ondragover="allowDrop(event)"></table>
+                <div id="fri_table"></div>
             </section>
 
         </article>
