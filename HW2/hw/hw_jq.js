@@ -90,6 +90,7 @@
 			}
 		});
 	}
+	
 
 	function openModify(title,day) {
 		$.ajax({
@@ -102,6 +103,7 @@
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 			success : function(response) {
 				document.getElementById("e_day").value = day;
+				document.getElementById("this_title").value = title;
 				document.getElementById("e_title").value = title;
 				document.getElementById("e_contents").value = response.trim();
 				document.getElementById("modifyModal").style.display = "block";
@@ -164,13 +166,8 @@ $(document).ready(function() {
 			type:"POST",
 			url:"./modify.jsp",
 			data : {
-				/*
-				day:$("#e_day").val(),
-				title:$("#e_title").val(),
-				content:$("#e_content").val()
-
-				*/
 				day: document.getElementById("e_day").value,
+				this_title:document.getElementById("this_title").value,
 				title: document.getElementById("e_title").value,
 				content: document.getElementById("e_contents").value
 			},

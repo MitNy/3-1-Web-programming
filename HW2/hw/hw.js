@@ -215,3 +215,4 @@ function search() {
         document.getElementById("myInput").value = "";
     }   
 }
+
