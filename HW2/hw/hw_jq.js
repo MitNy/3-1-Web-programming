@@ -184,6 +184,35 @@ $(document).ready(function() {
 	});
 
 
+	$(function(){
+    		$('#mon_table').sortable({
+			placeholder: "ui-state-highlight",
+			helper:'clone',
+			connectWith: "#tue_table,#wed_table,#thu_table,#fri_table"
+		});
+		$('#tue_table').sortable({
+			placeholder: "ui-state-highlight",
+			helper:'clone',
+			connectWith: "#mon_table,#wed_table,#thu_table,#fri_table"
+		});
+		$('#wed_table').sortable({
+			placeholder: "ui-state-highlight",
+			helper:'clone',
+			connectWith: "#tue_table,#mon_table,#thu_table,#fri_table"
+		});
+		$('#thu_table').sortable({
+			placeholder: "ui-state-highlight",
+			helper:'clone',
+			connectWith: "#tue_table,#wed_table,#mon_table,#fri_table"
+		});
+		$('#fri_table').sortable({
+			placeholder: "ui-state-highlight",
+			helper:'clone',
+			connectWith: "#tue_table,#wed_table,#thu_table,#mon_table"
+		});
+	});
+
+
 });
 
 

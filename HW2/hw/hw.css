@@ -234,5 +234,7 @@ ul {
 	float:right;
 }
 
-
+#mon_table, #tue_table, #wed_table, #thu_table, #fri_table {
+	height:100%;
+}
 
