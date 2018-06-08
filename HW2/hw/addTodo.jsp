@@ -6,25 +6,20 @@
         String week = request.getParameter("day");
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-	if( week.equals("0") || title.equals("") || content.equals("") ){
-		out.println("<script>alert('빈 칸을 채워주세요.');history.go(-1);</script>");
+	if(week.equals("1")) {
+		week = "Mon";
 	}
-	else {
-		if(week.equals("1")) {
-			week = "Mon";
-		}
-		else if(week.equals("2")) {
-			week = "Tue";
-		}
-		else if(week.equals("3")) {
-			week = "Wed";
-		}
-		else if(week.equals("4")) {
-			week = "Thu";
-		}
-		else if(week.equals("5")) {
-			week = "Fri";
-		}
+	else if(week.equals("2")) {
+		week = "Tue";
+	}
+	else if(week.equals("3")) {
+		week = "Wed";
+	}
+	else if(week.equals("4")) {
+		week = "Thu";
+	}
+	else if(week.equals("5")) {
+		week = "Fri";
 	}
 
 	String fileName = title+".txt";

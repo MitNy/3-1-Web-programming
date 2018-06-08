@@ -12,7 +12,4 @@
 		s = Integer.parseInt(array[i]);
 		number[i] = s;
 	}
-
-	RequestDispatcher req = request.getRequestDispatcher("MonList.jsp");
-	req.forward(request, response);
 %>
