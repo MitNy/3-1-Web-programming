@@ -8,6 +8,7 @@
 		FriLoad();
 	}
 	function MonLoad() {
+		
 		$.ajax({
 			type:"GET",
 			url:"./MonList.jsp",
@@ -188,7 +189,27 @@ $(document).ready(function() {
     		$('#mon_table').sortable({
 			placeholder: "ui-state-highlight",
 			helper:'clone',
-			connectWith: "#tue_table,#wed_table,#thu_table,#fri_table"
+			connectWith: "#tue_table,#wed_table,#thu_table,#fri_table",
+			update: function() {
+				var mon_array = new Array();
+				$("#mon_table").children().each(function() {
+					mon_array.push($(this).attr("id"));
+				});
+				$.ajax({
+					type:"POST",
+					url:"./Mon.jsp",
+					contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+					traditional: true,
+					data: { array:mon_array },
+					success: function(response) {
+						console.log(response);
+						alert("success");
+					},
+					error: function() {
+						alert("failt");
+					}
+				});
+			}
 		});
 		$('#tue_table').sortable({
 			placeholder: "ui-state-highlight",

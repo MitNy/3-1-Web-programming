@@ -137,6 +137,7 @@ input {
 }
 
 .doContent {
+	cursor:pointer;
     text-align: center;
     margin: 10px;
     border: 1px solid #888;
